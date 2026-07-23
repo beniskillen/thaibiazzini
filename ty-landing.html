@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nara personal brand strategy and content activation for founders who want a sharper reputation system.">
+<title>Nara - Personal Brand Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --ink:#1d1d1b;
+  --charcoal:#283237;
+  --mist:#9ca3a1;
+  --yellow:#f2efa3;
+  --yellow-deep:#e8e48a;
+  --paper:#eeeeee;
+  --white:#ffffff;
+  --warm:#f5f0d3;
+  --line:rgba(242,239,163,.24);
+  --ink-line:rgba(29,29,27,.16);
+  --cursor-fill:#f2efa3;
+  --cursor-text:#1d1d1b;
+  --font:'Poppins',Arial,Helvetica,sans-serif;
+  --script:'Great Vibes','Brush Script MT',cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--paper);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.menu-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img,video{display:block;max-width:100%}
+.shell{width:min(100% - 80px, 1440px);margin:0 auto}
+.small-shell{width:min(100% - 80px, 1180px);margin:0 auto}
+.eyebrow{
+  display:block;
+  font-size:16px;
+  line-height:1.15;
+  font-weight:500;
+  color:var(--yellow);
+}
+.label{
+  display:inline-block;
+  font-size:13px;
+  line-height:1;
+  font-weight:600;
+  text-transform:uppercase;
+}
+h1,h2,h3,p{margin:0}
+h1,h2,h3,.display{
+  font-family:var(--font);
+  font-weight:500;
+  letter-spacing:0;
+  text-transform:uppercase;
+}
+h1{font-size:64px;line-height:1.08;font-weight:400}
+h2{font-size:86px;line-height:.96}
+h3{font-size:32px;line-height:1}
+p{font-weight:400}
+.soft{color:var(--yellow)}
+.button{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  min-height:58px;
+  padding:0 24px 0 28px;
+  border:0;
+  border-radius:999px;
+  background:var(--yellow);
+  color:var(--ink);
+  font-size:14px;
+  line-height:1;
+  font-weight:600;
+  text-transform:uppercase;
+  cursor:pointer;
+  overflow:hidden;
+}
+.button::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:var(--white);
+  transform:translateY(100%);
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.button:hover::before{transform:translateY(0)}
+.button span,.button .spark{position:relative;z-index:1}
+.button .dot{font-size:18px;line-height:1}
+.spark{
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+}
+.spark::before,.spark::after{
+  content:"";
+  position:absolute;
+  width:26px;
+  height:2px;
+  background:currentColor;
+}
+.spark::after{transform:rotate(90deg)}
+.outline-button{
+  border:1px solid currentColor;
+  background:transparent;
+  color:var(--yellow);
+}
+.outline-button::before{background:var(--yellow)}
+.outline-button:hover{color:var(--ink)}
+
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:300;
+  display:grid;
+  place-items:center;
+  background:var(--ink);
+  color:var(--yellow);
+}
+.loader-brand{
+  display:grid;
+  place-items:center;
+  gap:12px;
+}
+.loader-n{
+  font-family:var(--script);
+  font-size:112px;
+  line-height:.74;
+  font-weight:400;
+}
+.loader-name{
+  font-size:14px;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+.cursor{
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:260;
+  width:84px;
+  height:84px;
+  pointer-events:none;
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.72);
+  mix-blend-mode:normal;
+}
+.cursor-core{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:var(--cursor-fill);
+  border:1px solid rgba(29,29,27,.28);
+  transition:background .3s ease,border .3s ease,transform .2s ease;
+}
+.cursor-label{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:var(--cursor-text);
+  font-size:10px;
+  line-height:1.1;
+  font-weight:600;
+  text-align:center;
+  text-transform:uppercase;
+  transition:color .3s ease,opacity .2s ease;
+}
+.cursor-dot{
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:261;
+  width:8px;
+  height:8px;
+  pointer-events:none;
+  border-radius:50%;
+  background:var(--cursor-text);
+  opacity:0;
+}
+.cursor.is-visible,.cursor-dot.is-visible{opacity:1}
+.cursor.is-small .cursor-core{transform:scale(.36)}
+.cursor.is-small .cursor-label{opacity:0}
+.cursor.is-large .cursor-core{transform:scale(1.35)}
+.cursor-ready,.cursor-ready a,.cursor-ready button,.cursor-ready .service-item,.cursor-ready .work-row{cursor:none}
+
+.nav{
+  position:fixed;
+  inset:0 0 auto;
+  z-index:120;
+  height:96px;
+  color:var(--white);
+  transition:background .3s ease,backdrop-filter .3s ease,border .3s ease;
+}
+.nav.is-solid{
+  background:rgba(29,29,27,.76);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(242,239,163,.16);
+}
+.nav-inner{
+  width:min(100% - 80px, 1920px);
+  height:100%;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:30px;
+}
+.nav-left,.nav-right{display:flex;align-items:center;gap:42px}
+.nav-right{justify-content:flex-end}
+.nav a{
+  font-size:16px;
+  font-weight:500;
+  color:rgba(255,255,255,.86);
+}
+.nav a:hover,.nav a.is-active{color:var(--white)}
+.nav a.is-active{border-bottom:2px solid var(--white);padding-bottom:9px}
+.brand-lockup{
+  display:grid;
+  grid-template-columns:auto auto;
+  align-items:center;
+  gap:12px;
+  color:var(--white);
+}
+.brand-script{
+  font-family:var(--script);
+  font-size:68px;
+  line-height:.72;
+  font-weight:400;
+}
+.brand-word{
+  font-size:12px;
+  line-height:1.05;
+  font-weight:700;
+  text-transform:uppercase;
+}
+.socials{display:flex;align-items:center;gap:28px}
+.socials a{font-size:21px;font-weight:600}
+.menu-open-button{
+  display:none;
+  width:54px;
+  height:54px;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:50%;
+  background:transparent;
+  cursor:pointer;
+}
+.menu-open-button span,.menu-open-button span::before,.menu-open-button span::after{
+  display:block;
+  width:20px;
+  height:2px;
+  background:var(--white);
+}
+.menu-open-button span{position:relative;margin:0 auto}
+.menu-open-button span::before,.menu-open-button span::after{content:"";position:absolute;left:0}
+.menu-open-button span::before{top:-7px}
+.menu-open-button span::after{top:7px}
+
+.menu-panel{
+  position:fixed;
+  inset:0;
+  z-index:240;
+  visibility:hidden;
+  background:var(--yellow);
+  color:var(--ink);
+  transform:translateY(-100%);
+}
+.menu-panel.is-open{visibility:visible}
+.menu-close{
+  position:absolute;
+  right:40px;
+  top:34px;
+  width:58px;
+  height:58px;
+  border:1px solid var(--ink);
+  border-radius:50%;
+  background:transparent;
+  cursor:pointer;
+}
+.menu-close::before,.menu-close::after{
+  content:"";
+  position:absolute;
+  left:17px;
+  top:28px;
+  width:22px;
+  height:2px;
+  background:var(--ink);
+}
+.menu-close::before{transform:rotate(45deg)}
+.menu-close::after{transform:rotate(-45deg)}
+.menu-grid{
+  min-height:100%;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+}
+.menu-links{
+  padding:120px 56px 56px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.menu-links a{
+  width:max-content;
+  max-width:100%;
+  font-size:90px;
+  line-height:.96;
+  font-weight:500;
+  text-transform:uppercase;
+}
+.menu-aside{
+  background:var(--ink);
+  color:var(--yellow);
+  padding:120px 56px 56px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  background:var(--charcoal);
+  color:var(--yellow);
+  overflow:hidden;
+}
+.hero-media{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:var(--charcoal);
+}
+.hero-media video,.hero-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(.7) saturate(.9) contrast(.85);
+  opacity:.64;
+}
+.hero-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(29,29,27,.62), rgba(29,29,27,.18) 42%, rgba(29,29,27,.52)),
+    linear-gradient(180deg, rgba(29,29,27,.42), rgba(29,29,27,.18) 42%, rgba(29,29,27,.72));
+}
+.hero-stage{
+  position:relative;
+  z-index:2;
+  min-height:100vh;
+  width:min(100% - 80px, 1920px);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1.05fr 1fr;
+  align-items:center;
+  gap:40px;
+  padding:128px 0 76px;
+}
+.hero-left{align-self:end;max-width:620px;padding-bottom:62px}
+.hero-left h1{
+  margin-top:14px;
+  color:var(--yellow);
+  max-width:620px;
+}
+.hero-right{
+  justify-self:end;
+  max-width:390px;
+  align-self:center;
+  text-align:right;
+  color:var(--yellow);
+  font-size:17px;
+  line-height:1.34;
+  font-weight:500;
+}
+.hero-mark{
+  justify-self:center;
+  position:relative;
+  width:480px;
+  height:480px;
+  display:grid;
+  place-items:center;
+  color:var(--yellow);
+}
+.hero-n{
+  font-family:var(--script);
+  font-size:430px;
+  line-height:.74;
+  font-weight:400;
+  transform:rotate(-6deg);
+  text-shadow:0 20px 70px rgba(0,0,0,.24);
+}
+.hero-brand{
+  position:absolute;
+  right:42px;
+  bottom:92px;
+  font-size:60px;
+  line-height:.9;
+  font-weight:600;
+  text-transform:uppercase;
+}
+.side-pill{
+  position:absolute;
+  z-index:5;
+  left:-48px;
+  top:116px;
+  width:142px;
+  height:126px;
+  border-radius:0 40px 40px 0;
+  background:var(--yellow);
+  color:var(--ink);
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+.side-pill .spin{
+  position:relative;
+  width:112px;
+  height:112px;
+  animation:spin 14s linear infinite;
+  font-size:14px;
+  line-height:1;
+  font-weight:500;
+}
+.spin span{position:absolute;left:50%;top:50%;transform-origin:0 0}
+.video-toggle{
+  position:absolute;
+  left:50%;
+  bottom:68px;
+  z-index:5;
+  transform:translateX(-50%);
+  width:86px;
+  height:86px;
+  border:1px solid var(--yellow);
+  border-radius:50%;
+  background:rgba(29,29,27,.18);
+  color:var(--yellow);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+}
+.video-toggle span{
+  width:0;
+  height:0;
+  border-top:12px solid transparent;
+  border-bottom:12px solid transparent;
+  border-left:18px solid currentColor;
+  margin-left:5px;
+}
+.video-toggle.is-playing span{
+  width:18px;
+  height:24px;
+  border:0;
+  margin:0;
+  background:linear-gradient(90deg,currentColor 0 6px,transparent 6px 12px,currentColor 12px);
+}
+.whatsapp{
+  position:fixed;
+  right:48px;
+  bottom:38px;
+  z-index:130;
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  background:var(--yellow);
+  color:var(--ink);
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  font-weight:700;
+  box-shadow:0 18px 50px rgba(0,0,0,.16);
+}
+
+.marquee{
+  position:relative;
+  overflow:hidden;
+  background:var(--yellow);
+  color:var(--ink);
+  border-top:1px solid rgba(29,29,27,.2);
+  border-bottom:1px solid rgba(29,29,27,.2);
+}
+.marquee.dark{background:var(--ink);color:var(--yellow);border-color:var(--line)}
+.marquee-track{
+  display:flex;
+  gap:34px;
+  width:max-content;
+  padding:18px 0;
+  will-change:transform;
+}
+.marquee span{
+  display:inline-flex;
+  align-items:center;
+  gap:34px;
+  white-space:nowrap;
+  font-size:15px;
+  line-height:1;
+  font-weight:600;
+  text-transform:uppercase;
+}
+.marquee span::after{content:"+";font-size:24px;font-weight:400}
+
+.section{
+  position:relative;
+  padding:132px 0;
+}
+.section.dark{
+  background:var(--ink);
+  color:var(--yellow);
+}
+.section.light{
+  background:var(--paper);
+  color:var(--ink);
+}
+.who-grid{
+  display:grid;
+  grid-template-columns:.72fr 1.28fr;
+  gap:88px;
+}
+.section-number{
+  font-size:15px;
+  line-height:1;
+  font-weight:500;
+  color:inherit;
+}
+.who-copy{
+  font-size:52px;
+  line-height:1.1;
+  font-weight:500;
+  color:var(--ink);
+}
+.who-copy strong{
+  color:var(--yellow);
+  background:var(--ink);
+  padding:0 10px;
+  font-weight:500;
+}
+.who-side{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:360px;
+}
+.chip-row{display:flex;flex-wrap:wrap;gap:12px}
+.chip{
+  display:inline-flex;
+  min-height:44px;
+  align-items:center;
+  border:1px solid var(--ink-line);
+  border-radius:999px;
+  padding:0 16px;
+  font-size:14px;
+  line-height:1;
+  font-weight:600;
+  text-transform:uppercase;
+}
+
+.works-header{
+  display:grid;
+  grid-template-columns:.65fr 1.35fr;
+  gap:70px;
+  align-items:end;
+  margin-bottom:60px;
+}
+.works-header h2{color:var(--yellow);max-width:760px}
+.works-header p{
+  color:rgba(242,239,163,.72);
+  max-width:520px;
+  font-size:17px;
+  line-height:1.48;
+}
+.work-row{
+  position:relative;
+  display:grid;
+  grid-template-columns:120px minmax(0,1fr) 210px;
+  align-items:center;
+  gap:38px;
+  min-height:185px;
+  border-top:1px solid var(--line);
+  color:var(--yellow);
+  overflow:hidden;
+}
+.work-row:last-child{border-bottom:1px solid var(--line)}
+.work-row::before{
+  content:"";
+  position:absolute;
+  inset:0 calc(50% - 50vw);
+  background:var(--yellow);
+  transform:scaleY(0);
+  transform-origin:bottom;
+  transition:transform .32s cubic-bezier(.22,1,.36,1);
+  z-index:0;
+}
+.work-row > *{position:relative;z-index:1}
+.work-row:hover{color:var(--ink)}
+.work-row:hover::before{transform:scaleY(1)}
+.work-index{font-size:15px;font-weight:500}
+.work-title h3{font-size:48px;line-height:.98}
+.work-title p{
+  margin-top:13px;
+  max-width:720px;
+  color:currentColor;
+  opacity:.72;
+}
+.work-stats{
+  display:grid;
+  gap:12px;
+  justify-items:end;
+  font-size:14px;
+  line-height:1.1;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+.beyond{
+  background:var(--paper);
+  color:var(--ink);
+  padding:0;
+}
+.beyond-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:740px;
+}
+.beyond-media{
+  position:relative;
+  overflow:hidden;
+  background:var(--ink);
+}
+.beyond-media video,.beyond-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(.95) contrast(.9);
+  opacity:.78;
+}
+.beyond-copy{
+  padding:96px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:38px;
+}
+.beyond-copy h2{max-width:720px;color:var(--ink)}
+.beyond-copy p{font-size:20px;line-height:1.5;max-width:620px;color:#4f504d}
+
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.metric{
+  min-height:260px;
+  background:var(--ink);
+  color:var(--yellow);
+  padding:34px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.metric-value{
+  font-size:82px;
+  line-height:.9;
+  font-weight:500;
+}
+.metric-label{
+  font-size:15px;
+  line-height:1.2;
+  font-weight:600;
+  text-transform:uppercase;
+  color:rgba(242,239,163,.68);
+}
+
+.process-grid{
+  display:grid;
+  grid-template-columns:.78fr 1.22fr;
+  gap:96px;
+}
+.process-copy h2{color:var(--ink);max-width:680px}
+.process-copy p{
+  margin-top:28px;
+  max-width:540px;
+  color:#4f504d;
+  font-size:19px;
+  line-height:1.5;
+}
+.service-list{border-top:1px solid var(--ink-line)}
+.service-item{
+  position:relative;
+  border-bottom:1px solid var(--ink-line);
+  padding:34px 0;
+  display:grid;
+  grid-template-columns:72px 1fr 42px;
+  gap:28px;
+  align-items:start;
+}
+.service-item button{
+  position:absolute;
+  inset:0;
+  width:100%;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  text-align:left;
+}
+.service-item h3{font-size:42px;color:var(--ink)}
+.service-item p{
+  max-height:0;
+  overflow:hidden;
+  color:#55564f;
+  font-size:18px;
+  line-height:1.5;
+  transition:max-height .36s ease,margin .36s ease;
+}
+.service-item.is-open p{max-height:180px;margin-top:18px}
+.service-num{font-size:15px;font-weight:500}
+.plus{
+  position:relative;
+  width:28px;
+  height:28px;
+  margin-top:5px;
+}
+.plus::before,.plus::after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:13px;
+  width:28px;
+  height:2px;
+  background:var(--ink);
+  transition:transform .3s ease;
+}
+.plus::after{transform:rotate(90deg)}
+.service-item.is-open .plus::after{transform:rotate(0)}
+
+.about-panel{
+  border-radius:48px 48px 0 0;
+  overflow:hidden;
+  background:var(--ink);
+  color:var(--yellow);
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  min-height:760px;
+}
+.about-photo{
+  position:relative;
+  overflow:hidden;
+}
+.about-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(1) contrast(.95);
+  opacity:.86;
+}
+.about-copy{
+  padding:104px 96px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.about-copy h2{max-width:620px}
+.about-copy p{
+  margin-top:24px;
+  color:rgba(242,239,163,.72);
+  font-size:18px;
+  line-height:1.55;
+  max-width:620px;
+}
+
+.connect{
+  min-height:88vh;
+  background:var(--yellow);
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.connect-grid{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:60px;
+  align-items:center;
+}
+.connect h2{
+  font-size:104px;
+  line-height:.94;
+  max-width:900px;
+}
+.connect p{
+  margin-top:30px;
+  max-width:620px;
+  font-size:20px;
+  line-height:1.45;
+}
+.connect-mark{
+  justify-self:end;
+  font-family:var(--script);
+  font-size:420px;
+  line-height:.74;
+  color:rgba(29,29,27,.14);
+  transform:rotate(-8deg);
+}
+.connect .button{margin-top:36px;background:var(--ink);color:var(--yellow)}
+.connect .button::before{background:var(--white)}
+.connect .button:hover{color:var(--ink)}
+
+footer{
+  background:var(--ink);
+  color:var(--paper);
+  padding:62px 0 40px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.3fr repeat(3,.7fr);
+  gap:42px;
+  padding-bottom:44px;
+  border-bottom:1px solid var(--line);
+}
+.footer-title{
+  color:var(--yellow);
+  font-size:14px;
+  font-weight:600;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+footer p,footer a{
+  display:block;
+  color:rgba(238,238,238,.68);
+  margin:8px 0;
+}
+footer a:hover{color:var(--yellow)}
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  padding-top:26px;
+  color:rgba(238,238,238,.45);
+  font-size:14px;
+}
+
+.js .animate-in,.js [data-split]{opacity:0}
+.word{display:inline-block;overflow:hidden;vertical-align:top}
+.word > span{display:inline-block}
+.magnetic{transition:transform .18s ease}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:1180px){
+  .nav-inner,.hero-stage,.shell,.small-shell{width:min(100% - 48px, 1440px)}
+  .nav-left{gap:24px}
+  .socials{display:none}
+  h1{font-size:52px}
+  h2{font-size:68px}
+  .hero-stage{grid-template-columns:1fr;align-items:end}
+  .hero-left{align-self:end;padding-bottom:0}
+  .hero-right{justify-self:start;text-align:left;max-width:620px}
+  .hero-mark{width:360px;height:310px;justify-self:start}
+  .hero-n{font-size:310px}
+  .hero-brand{font-size:44px;right:22px;bottom:58px}
+  .who-grid,.works-header,.process-grid,.about-grid,.connect-grid,.beyond-grid{grid-template-columns:1fr}
+  .about-grid{min-height:0}
+  .about-photo{min-height:560px}
+  .beyond-grid{min-height:0}
+  .beyond-media{min-height:540px}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .connect-mark{display:none}
+}
+@media(max-width:840px){
+  body{font-size:15px}
+  .nav{height:82px}
+  .nav-left,.nav-right .button{display:none}
+  .menu-open-button{display:block}
+  .brand-script{font-size:56px}
+  .nav-inner{grid-template-columns:1fr auto}
+  .brand-lockup{justify-self:start}
+  .menu-grid{grid-template-columns:1fr}
+  .menu-aside{display:none}
+  .menu-links a{font-size:56px}
+  .hero-stage{padding-top:108px}
+  h1{font-size:40px}
+  h2,.connect h2{font-size:48px}
+  h3,.service-item h3{font-size:30px}
+  .hero-n{font-size:240px}
+  .hero-brand{font-size:34px}
+  .hero-mark{width:280px;height:250px}
+  .hero-right{font-size:16px}
+  .section{padding:88px 0}
+  .who-copy{font-size:34px}
+  .work-row{grid-template-columns:1fr;gap:16px;padding:30px 0}
+  .work-title h3{font-size:38px}
+  .work-stats{justify-items:start}
+  .beyond-copy,.about-copy{padding:64px 28px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .whatsapp{right:24px;bottom:24px;width:62px;height:62px}
+  .cursor,.cursor-dot{display:none}
+}
+@media(max-width:560px){
+  .nav-inner,.hero-stage,.shell,.small-shell{width:min(100% - 32px, 1440px)}
+  .side-pill{display:none}
+  .video-toggle{bottom:32px;width:70px;height:70px}
+  .hero-left h1{font-size:34px}
+  h2,.connect h2{font-size:40px}
+  .hero-mark{width:220px;height:220px}
+  .hero-n{font-size:210px}
+  .hero-brand{font-size:29px;right:4px;bottom:44px}
+  .who-copy{font-size:28px}
+  .metrics{grid-template-columns:1fr}
+  .metric{min-height:210px}
+  .service-item{grid-template-columns:1fr 32px;gap:14px}
+  .service-num{grid-column:1 / -1}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .loader{display:none !important}
+  .js .animate-in,.js [data-split]{opacity:1}
+  .cursor,.cursor-dot{display:none}
+}
+</style>
+</head>
+<body>
+<div class="loader" aria-hidden="true">
+  <div class="loader-brand">
+    <div class="loader-n">N</div>
+    <div class="loader-name">Nara</div>
+  </div>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-core"></div><div class="cursor-label" id="cursorLabel">Nara</div></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a class="is-active" href="#top">Home</a>
+      <a href="#work">Made by Nara</a>
+      <a href="#about">Culture</a>
+      <a href="#process">How we roll</a>
+    </div>
+    <a class="brand-lockup magnetic" href="#top" aria-label="Nara home">
+      <span class="brand-script">N</span>
+      <span class="brand-word">Nara<br>Studio</span>
+    </a>
+    <div class="nav-right">
+      <div class="socials" aria-label="Social links">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Instagram">ig</a>
+      </div>
+      <a class="button magnetic" href="#connect"><span class="dot">.</span><span>Connect Co</span><span class="spark"></span></a>
+      <button class="menu-open-button" id="menuOpen" type="button" aria-label="Open menu" aria-controls="menuPanel" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<aside class="menu-panel" id="menuPanel" aria-hidden="true">
+  <button class="menu-close" id="menuClose" type="button" aria-label="Close menu"></button>
+  <div class="menu-grid">
+    <div class="menu-links">
+      <a href="#top">Home</a>
+      <a href="#work">Made by Nara</a>
+      <a href="#about">Culture</a>
+      <a href="#process">How we roll</a>
+      <a href="#connect">Connect</a>
+    </div>
+    <div class="menu-aside">
+      <div>
+        <span class="label">Studio</span>
+        <p>Melbourne<br>Working worldwide</p>
+      </div>
+      <div>
+        <span class="label">Contact</span>
+        <p>[ Email placeholder ]<br>[ Booking link placeholder ]</p>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<header class="hero" id="top" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b" data-cursor-label="Play">
+  <div class="hero-media">
+    <video id="heroVideo" autoplay muted loop playsinline poster="assets/nara-portrait.jpg">
+      <source src="assets/table-manners/A vintage soak Why not. This summer, let the wine flow and the rules slide. Your spot to sip, sp.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="side-pill" aria-hidden="true">
+    <div class="spin" id="spinText"></div>
+  </div>
+  <button class="video-toggle is-playing magnetic" id="videoToggle" type="button" aria-label="Pause background video"><span></span></button>
+  <div class="hero-stage">
+    <div class="hero-left">
+      <span class="eyebrow animate-in">Welcome!</span>
+      <h1 data-split>Nara shapes founders into brands people remember.</h1>
+    </div>
+    <div class="hero-mark animate-in" aria-hidden="true">
+      <div class="hero-n">N</div>
+      <div class="hero-brand">Nara</div>
+    </div>
+    <p class="hero-right animate-in">We craft reputation systems that stick and stories that move. From a single magnetic message to a full content engine, Nara turns personal expertise into visible momentum.</p>
+  </div>
+</header>
+
+<a class="whatsapp magnetic" href="#" aria-label="Message Nara">WA</a>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" data-marquee>
+    <span>Connect with Nara</span>
+    <span>Content that moves</span>
+    <span>Positioning with intent</span>
+    <span>Stories at every scale</span>
+    <span>Built for momentum</span>
+  </div>
+</div>
+
+<main>
+  <section class="section light" id="positioning" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3" data-cursor-label="Read">
+    <div class="small-shell who-grid">
+      <div class="who-side animate-in">
+        <div>
+          <span class="section-number">[ 00 ]</span>
+          <h3>Who are we?</h3>
+        </div>
+        <div class="chip-row">
+          <span class="chip">Founders</span>
+          <span class="chip">Experts</span>
+          <span class="chip">Women-led brands</span>
+          <span class="chip">Personal brands</span>
+        </div>
+      </div>
+      <p class="who-copy" data-split>Trusted by ambitious founders not because Nara chases volume, but because every message is crafted with intention. From positioning and cinematic content to high-end activation, every detail is built to create impact from the first idea to the public rollout. <strong>Looking for a partner that thinks big? Let's talk.</strong></p>
+    </div>
+  </section>
+
+  <div class="marquee dark" aria-hidden="true">
+    <div class="marquee-track" data-marquee data-direction="right">
+      <span>Made by Nara</span>
+      <span>Made by Nara</span>
+      <span>Made by Nara</span>
+      <span>Made by Nara</span>
+    </div>
+  </div>
+
+  <section class="section dark" id="work" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b" data-cursor-label="Take a look">
+    <div class="shell">
+      <div class="works-header">
+        <div class="animate-in">
+          <span class="section-number">[ 00 ]</span>
+          <h3>The works</h3>
+        </div>
+        <div>
+          <h2 data-split>Every frame tells the story too.</h2>
+          <p class="animate-in">This is Made by Nara: a showcase of strategy, content and activation shaped for founders who want sharper public momentum.</p>
+        </div>
+      </div>
+      <article class="work-row animate-in" data-cursor-label="Launch film">
+        <span class="work-index">[ 01 ]</span>
+        <div class="work-title">
+          <h3>Red Dust Role Models</h3>
+          <p>Purpose-led storytelling, donor communications and partnership content for a national organisation.</p>
+        </div>
+        <div class="work-stats"><span>Scope National</span><span>Delivery Story system</span></div>
+      </article>
+      <article class="work-row animate-in" data-cursor-label="Brand engine">
+        <span class="work-index">[ 02 ]</span>
+        <div class="work-title">
+          <h3>Fortem Media</h3>
+          <p>Portfolio marketing across hospitality, property, e-commerce, automotive, fashion and finance.</p>
+        </div>
+        <div class="work-stats"><span>Industries 8</span><span>Role Strategy</span></div>
+      </article>
+      <article class="work-row animate-in" data-cursor-label="Founder coaching">
+        <span class="work-index">[ 03 ]</span>
+        <div class="work-title">
+          <h3>Maxx Marketing</h3>
+          <p>Coaching for women-led businesses while growing a social audience to around 90k followers.</p>
+        </div>
+        <div class="work-stats"><span>Founders 40+</span><span>Audience 90k</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="beyond" data-cursor-fill="#e8e48a" data-cursor-text="#1d1d1b" data-cursor-label="Watch">
+    <div class="beyond-grid">
+      <div class="beyond-media">
+        <video autoplay muted loop playsinline>
+          <source src="assets/table-manners/A vintage soak Why not. This summer, let the wine flow and the rules slide. Your spot to sip, sp.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="beyond-copy">
+        <div>
+          <span class="section-number">[ 00 ]</span>
+          <h3>Beyond the screen</h3>
+        </div>
+        <h2 data-split>Content that moves beyond the feed.</h2>
+        <p class="animate-in">From intimate tap-and-scroll moments to campaign-scale launches, Nara builds personal brand content for the way audiences actually discover, trust and buy from people.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="numbers" data-cursor-fill="#eeeeee" data-cursor-text="#1d1d1b" data-cursor-label="Proof">
+    <div class="shell">
+      <span class="section-number animate-in">[ 00 ]</span>
+      <div class="metrics">
+        <div class="metric animate-in">
+          <div class="metric-value"><span data-count="8">0</span>+</div>
+          <div class="metric-label">Years in brand and marketing</div>
+        </div>
+        <div class="metric animate-in">
+          <div class="metric-value"><span data-count="40">0</span>+</div>
+          <div class="metric-label">Founders coached</div>
+        </div>
+        <div class="metric animate-in">
+          <div class="metric-value"><span data-count="90">0</span>k</div>
+          <div class="metric-label">Audience built</div>
+        </div>
+        <div class="metric animate-in">
+          <div class="metric-value"><span data-count="8">0</span></div>
+          <div class="metric-label">Industries served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="process" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3" data-cursor-label="Open">
+    <div class="small-shell process-grid">
+      <div class="process-copy">
+        <span class="section-number animate-in">[ 00 ]</span>
+        <h2 data-split>How we roll</h2>
+        <p class="animate-in">Nara listens first and creates with you, not just for you. Everything is fast, focused and built like a compact team around your reputation.</p>
+      </div>
+      <div class="service-list">
+        <div class="service-item is-open animate-in">
+          <span class="service-num">[ 01 ]</span>
+          <div><h3>Positioning that lands</h3><p>We define what you are known for, who needs to know it and how the market should repeat it back.</p></div>
+          <span class="plus"></span><button type="button" aria-label="Toggle positioning details"></button>
+        </div>
+        <div class="service-item animate-in">
+          <span class="service-num">[ 02 ]</span>
+          <div><h3>Video that carries the story</h3><p>Launch reels, thought-leadership clips and brand films designed to make your expertise easier to feel.</p></div>
+          <span class="plus"></span><button type="button" aria-label="Toggle video details"></button>
+        </div>
+        <div class="service-item animate-in">
+          <span class="service-num">[ 03 ]</span>
+          <div><h3>Publishing with rhythm</h3><p>Daily and weekly content systems that build trust without turning the founder into a full-time content manager.</p></div>
+          <span class="plus"></span><button type="button" aria-label="Toggle publishing details"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-panel" id="about" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b" data-cursor-label="Nara">
+    <div class="about-grid">
+      <div class="about-photo animate-in">
+        <img src="assets/nara-portrait.jpg" alt="Black and white portrait for Nara">
+      </div>
+      <div class="about-copy">
+        <span class="section-number animate-in">[ 00 ]</span>
+        <h2 data-split>Culture starts with clarity.</h2>
+        <p class="animate-in">Nara is for founders who have substance, ambition and a story worth sharpening. The work blends strategy, direction and production so a personal brand feels intentional rather than improvised.</p>
+        <p class="animate-in">The result is a reputation system that looks refined, moves quickly and makes the founder easier to understand, easier to trust and harder to ignore.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" data-marquee>
+      <span>Connect with Nara</span>
+      <span>Connect with Nara</span>
+      <span>Connect with Nara</span>
+      <span>Connect with Nara</span>
+    </div>
+  </div>
+
+  <section class="connect" id="connect" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3" data-cursor-label="Connect">
+    <div class="shell connect-grid">
+      <div>
+        <span class="section-number animate-in">[ 00 ]</span>
+        <h2 data-split>Let's build the reputation people remember.</h2>
+        <p class="animate-in">If you want a personal brand that combines clarity, craft and speed, let's make something remarkable.</p>
+        <a class="button magnetic" href="#"><span class="dot">.</span><span>Book your Brand Audit</span><span class="spark"></span></a>
+      </div>
+      <div class="connect-mark animate-in" aria-hidden="true">N</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title">Nara Studio</div>
+        <p>Personal brand strategy and content activation for founders who want to be known for something and paid for it.</p>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <a href="#">[ Email placeholder ]</a>
+        <a href="#">[ Booking link placeholder ]</a>
+      </div>
+      <div>
+        <div class="footer-title">Social</div>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+      <div>
+        <div class="footer-title">Sitemap</div>
+        <a href="#work">Made by Nara</a>
+        <a href="#about">Culture</a>
+        <a href="#process">How we roll</a>
+        <a href="#connect">Connect</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>(c) 2026 Nara Studio. All rights reserved.</span>
+      <span>EN / PT / ES - Working worldwide.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasGSAP = Boolean(window.gsap);
+  const hasScrollTrigger = Boolean(window.ScrollTrigger);
+  const nav = document.getElementById('nav');
+  const menuPanel = document.getElementById('menuPanel');
+  const menuOpen = document.getElementById('menuOpen');
+  const menuClose = document.getElementById('menuClose');
+  const cursor = document.getElementById('cursor');
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorLabel = document.getElementById('cursorLabel');
+  const heroVideo = document.getElementById('heroVideo');
+  const videoToggle = document.getElementById('videoToggle');
+
+  function splitText(el){
+    const text = el.textContent.trim();
+    const words = text.split(' ');
+    el.setAttribute('aria-label', text);
+    el.textContent = '';
+    words.forEach((word, index) => {
+      const wrap = document.createElement('span');
+      const inner = document.createElement('span');
+      wrap.className = 'word';
+      inner.textContent = word + (index === words.length - 1 ? '' : '\u00a0');
+      wrap.appendChild(inner);
+      el.appendChild(wrap);
+    });
+  }
+
+  document.querySelectorAll('[data-split]').forEach(splitText);
+
+  const spinText = document.getElementById('spinText');
+  if(spinText){
+    const copy = 'Play Video Nara Studio ';
+    copy.split('').forEach((letter, index) => {
+      const span = document.createElement('span');
+      span.textContent = letter;
+      span.style.transform = 'rotate(' + (index * 360 / copy.length) + 'deg) translate(47px)';
+      spinText.appendChild(span);
+    });
+  }
+
+  function openMenu(){
+    document.body.classList.add('menu-open');
+    menuPanel.classList.add('is-open');
+    menuPanel.setAttribute('aria-hidden','false');
+    menuOpen?.setAttribute('aria-expanded','true');
+    if(hasGSAP && !reduceMotion){
+      gsap.fromTo(menuPanel,{yPercent:-100},{yPercent:0,duration:.72,ease:'power4.out'});
+      gsap.fromTo('.menu-links a',{y:88,opacity:0},{y:0,opacity:1,duration:.62,stagger:.055,ease:'power4.out',delay:.12});
+    }else{
+      menuPanel.style.transform = 'translateY(0)';
+    }
+  }
+
+  function closeMenu(){
+    document.body.classList.remove('menu-open');
+    menuOpen?.setAttribute('aria-expanded','false');
+    menuPanel.setAttribute('aria-hidden','true');
+    if(hasGSAP && !reduceMotion){
+      gsap.to(menuPanel,{yPercent:-100,duration:.48,ease:'power3.in',onComplete:()=>menuPanel.classList.remove('is-open')});
+    }else{
+      menuPanel.style.transform = 'translateY(-100%)';
+      menuPanel.classList.remove('is-open');
+    }
+  }
+
+  menuOpen?.addEventListener('click', openMenu);
+  menuClose?.addEventListener('click', closeMenu);
+  menuPanel.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  window.addEventListener('keydown', event => {
+    if(event.key === 'Escape' && menuPanel.classList.contains('is-open')) closeMenu();
+  });
+
+  videoToggle?.addEventListener('click', () => {
+    if(!heroVideo) return;
+    if(heroVideo.paused){
+      heroVideo.play();
+      videoToggle.classList.add('is-playing');
+      videoToggle.setAttribute('aria-label','Pause background video');
+    }else{
+      heroVideo.pause();
+      videoToggle.classList.remove('is-playing');
+      videoToggle.setAttribute('aria-label','Play background video');
+    }
+  });
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-solid', window.scrollY > 24);
+  }, {passive:true});
+
+  document.querySelectorAll('[data-marquee]').forEach(track => {
+    track.innerHTML += track.innerHTML;
+  });
+
+  document.querySelectorAll('.service-item button').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.service-item');
+      item.classList.toggle('is-open');
+    });
+  });
+
+  if(!hasGSAP || !hasScrollTrigger || reduceMotion){
+    document.querySelectorAll('.animate-in,[data-split]').forEach(el => el.style.opacity = 1);
+    document.querySelector('.loader')?.remove();
+    document.querySelectorAll('[data-count]').forEach(el => el.textContent = el.dataset.count);
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+  document.body.classList.add('cursor-ready');
+
+  gsap.timeline({defaults:{ease:'power3.out'}})
+    .fromTo('.loader-n',{scale:.78,opacity:0,rotate:-12},{scale:1,opacity:1,rotate:0,duration:.74})
+    .fromTo('.loader-name',{y:16,opacity:0},{y:0,opacity:1,duration:.38},'-=.32')
+    .to('.loader',{yPercent:-100,duration:.86,ease:'power4.inOut',delay:.22})
+    .set('.loader',{display:'none'});
+
+  gsap.fromTo('.hero [data-split] .word > span',
+    {yPercent:112},
+    {yPercent:0,duration:.86,stagger:.034,ease:'power4.out',delay:.62}
+  );
+  gsap.to('.hero [data-split]',{opacity:1,duration:.01,delay:.62});
+  gsap.fromTo('.hero .animate-in',
+    {y:34,opacity:0},
+    {y:0,opacity:1,duration:.82,stagger:.1,ease:'power3.out',delay:.72}
+  );
+  gsap.fromTo('.hero-n',{y:50,rotate:-15,opacity:0},{y:0,rotate:-6,opacity:1,duration:1.05,ease:'power4.out',delay:.72});
+  gsap.to('.hero-n',{y:-80,rotate:3,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('.hero-media video',{scale:1.08,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  document.querySelectorAll('[data-split]:not(.hero [data-split])').forEach(el => {
+    gsap.fromTo(el.querySelectorAll('.word > span'),
+      {yPercent:112},
+      {yPercent:0,duration:.72,stagger:.025,ease:'power4.out',scrollTrigger:{trigger:el,start:'top 84%'}}
+    );
+    gsap.to(el,{opacity:1,duration:.01,scrollTrigger:{trigger:el,start:'top 84%'}});
+  });
+
+  gsap.utils.toArray('.animate-in').forEach((el, index) => {
+    gsap.fromTo(el,
+      {y:36,opacity:0},
+      {y:0,opacity:1,duration:.72,ease:'power3.out',delay:(index % 3) * .03,scrollTrigger:{trigger:el,start:'top 86%'}}
+    );
+  });
+
+  gsap.utils.toArray('[data-marquee]').forEach(track => {
+    const direction = track.dataset.direction === 'right' ? 1 : -1;
+    gsap.to(track,{xPercent:direction * 50,ease:'none',duration:24,repeat:-1});
+  });
+
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = Number(el.dataset.count);
+    ScrollTrigger.create({
+      trigger:el,
+      start:'top 88%',
+      once:true,
+      onEnter:() => gsap.fromTo(el,{textContent:0},{textContent:target,duration:1.45,ease:'power3.out',snap:{textContent:1}})
+    });
+  });
+
+  let cursorX = 0;
+  let cursorY = 0;
+  window.addEventListener('mousemove', event => {
+    cursorX = event.clientX;
+    cursorY = event.clientY;
+    cursor.classList.add('is-visible');
+    cursorDot.classList.add('is-visible');
+    gsap.to(cursor,{x:cursorX,y:cursorY,duration:.22,ease:'power2.out'});
+    gsap.to(cursorDot,{x:cursorX,y:cursorY,duration:.08,ease:'power1.out'});
+  }, {passive:true});
+
+  document.querySelectorAll('a,button,.service-item,.work-row').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add(el.classList.contains('work-row') || el.classList.contains('video-toggle') ? 'is-large' : 'is-small');
+      if(el.dataset.cursorLabel) cursorLabel.textContent = el.dataset.cursorLabel;
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('is-small','is-large');
+      cursorLabel.textContent = document.body.dataset.cursorLabel || 'Nara';
+    });
+  });
+
+  gsap.utils.toArray('[data-cursor-fill]').forEach(section => {
+    ScrollTrigger.create({
+      trigger:section,
+      start:'top 55%',
+      end:'bottom 55%',
+      onEnter:()=>setCursorTheme(section),
+      onEnterBack:()=>setCursorTheme(section)
+    });
+  });
+
+  function setCursorTheme(section){
+    document.documentElement.style.setProperty('--cursor-fill', section.dataset.cursorFill);
+    document.documentElement.style.setProperty('--cursor-text', section.dataset.cursorText);
+    document.body.dataset.cursorLabel = section.dataset.cursorLabel || 'Nara';
+    cursorLabel.textContent = document.body.dataset.cursorLabel;
+  }
+
+  document.querySelectorAll('.magnetic').forEach(el => {
+    el.addEventListener('mousemove', event => {
+      const rect = el.getBoundingClientRect();
+      const x = (event.clientX - rect.left - rect.width / 2) * .14;
+      const y = (event.clientY - rect.top - rect.height / 2) * .14;
+      gsap.to(el,{x,y,duration:.22,ease:'power2.out'});
+    });
+    el.addEventListener('mouseleave', () => gsap.to(el,{x:0,y:0,duration:.34,ease:'elastic.out(1,.45)'}));
+  });
+})();
+</script>
+</body>
+</html>
