@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nara personal brand strategy and content activation for founders who want a sharper reputation system.">
-<title>Nara - Personal Brand Strategy</title>
+<meta name="description" content="Nara Studio helps founders, consultants and experts turn their experience into a clear personal brand, content system and audience activation process. Led by Thai Biazzini.">
+<title>Nara Studio - Personal Brand Consulting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -379,13 +379,25 @@ p{font-weight:400}
 }
 .hero-right{
   justify-self:end;
-  max-width:390px;
+  max-width:440px;
   align-self:center;
   text-align:right;
   color:var(--yellow);
   font-size:17px;
   line-height:1.34;
   font-weight:500;
+}
+.hero-right p + p{margin-top:18px}
+.hero-support{
+  color:rgba(242,239,163,.78);
+  font-weight:400;
+}
+.hero-actions{
+  margin-top:30px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:flex-end;
 }
 .hero-mark{
   justify-self:center;
@@ -567,6 +579,54 @@ p{font-weight:400}
   font-weight:600;
   text-transform:uppercase;
 }
+.copy-stack{
+  display:grid;
+  gap:22px;
+  color:#4f504d;
+  font-size:19px;
+  line-height:1.58;
+}
+.lead-copy{
+  color:var(--ink);
+  font-size:34px;
+  line-height:1.24;
+  font-weight:500;
+}
+.section.dark .copy-stack{color:rgba(242,239,163,.72)}
+.section.dark .lead-copy{color:var(--yellow)}
+.text-list{
+  margin:24px 0 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:13px;
+}
+.text-list li{
+  position:relative;
+  padding-left:24px;
+  color:#4f504d;
+  font-size:18px;
+  line-height:1.48;
+}
+.text-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.72em;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--yellow-deep);
+}
+.section.dark .text-list li{color:rgba(242,239,163,.74)}
+.section.dark .text-list li::before{background:var(--yellow)}
+.belief-copy{
+  margin-top:26px;
+  max-width:720px;
+  color:rgba(242,239,163,.72);
+  font-size:18px;
+  line-height:1.56;
+}
 
 .works-header{
   display:grid;
@@ -686,6 +746,83 @@ p{font-weight:400}
   text-transform:uppercase;
   color:rgba(242,239,163,.68);
 }
+.system-grid{
+  display:grid;
+  grid-template-columns:.74fr 1.26fr;
+  gap:90px;
+  align-items:start;
+}
+.system-copy h2{max-width:720px}
+.system-copy p{
+  margin-top:28px;
+  max-width:610px;
+  color:rgba(242,239,163,.72);
+  font-size:19px;
+  line-height:1.5;
+}
+.system-list{
+  display:grid;
+  border-top:1px solid var(--line);
+}
+.system-item{
+  display:grid;
+  grid-template-columns:62px 1fr;
+  gap:24px;
+  padding:24px 0;
+  border-bottom:1px solid var(--line);
+}
+.system-item span{
+  color:rgba(242,239,163,.55);
+  font-size:14px;
+  font-weight:600;
+}
+.system-item p{
+  color:var(--yellow);
+  font-size:22px;
+  line-height:1.18;
+  font-weight:500;
+}
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  margin-top:54px;
+}
+.result-card{
+  min-height:250px;
+  background:var(--ink);
+  color:var(--yellow);
+  padding:32px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:26px;
+}
+.result-card h3{font-size:30px;line-height:1.04}
+.result-card p{
+  color:rgba(242,239,163,.72);
+  font-size:16px;
+  line-height:1.48;
+}
+.deliverables-grid{
+  display:grid;
+  border-top:1px solid var(--ink-line);
+}
+.deliverable-row{
+  display:grid;
+  grid-template-columns:.78fr 1fr 1fr;
+  gap:34px;
+  padding:30px 0;
+  border-bottom:1px solid var(--ink-line);
+}
+.deliverable-row h3{font-size:30px;line-height:1.05}
+.deliverable-row p{
+  color:#4f504d;
+  font-size:16px;
+  line-height:1.5;
+}
 
 .process-grid{
   display:grid;
@@ -720,15 +857,40 @@ p{font-weight:400}
   text-align:left;
 }
 .service-item h3{font-size:42px;color:var(--ink)}
-.service-item p{
+.service-body{
   max-height:0;
   overflow:hidden;
+  transition:max-height .36s ease,margin .36s ease;
+}
+.service-body p{
   color:#55564f;
   font-size:18px;
   line-height:1.5;
-  transition:max-height .36s ease,margin .36s ease;
 }
-.service-item.is-open p{max-height:180px;margin-top:18px}
+.service-body p + p{margin-top:14px}
+.mini-title{
+  display:block;
+  margin:18px 0 8px;
+  color:var(--ink);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0;
+  text-transform:uppercase;
+}
+.detail-list{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:7px;
+}
+.detail-list li{
+  color:#55564f;
+  font-size:15px;
+  line-height:1.42;
+}
+.detail-list li::before{content:"+ ";color:var(--ink)}
+.service-item.is-open .service-body{max-height:840px;margin-top:18px}
 .service-num{font-size:15px;font-weight:500}
 .plus{
   position:relative;
@@ -785,6 +947,19 @@ p{font-weight:400}
   line-height:1.55;
   max-width:620px;
 }
+.fit-columns{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--ink-line);
+  border:1px solid var(--ink-line);
+  margin-top:54px;
+}
+.fit-card{
+  background:var(--paper);
+  padding:42px;
+}
+.fit-card h3{font-size:40px;line-height:1}
 
 .connect{
   min-height:88vh;
@@ -874,15 +1049,17 @@ footer a:hover{color:var(--yellow)}
   .hero-stage{grid-template-columns:1fr;align-items:end}
   .hero-left{align-self:end;padding-bottom:0}
   .hero-right{justify-self:start;text-align:left;max-width:620px}
+  .hero-actions{justify-content:flex-start}
   .hero-mark{width:360px;height:310px;justify-self:start}
   .hero-n{font-size:310px}
   .hero-brand{font-size:44px;right:22px;bottom:58px}
-  .who-grid,.works-header,.process-grid,.about-grid,.connect-grid,.beyond-grid{grid-template-columns:1fr}
+  .who-grid,.works-header,.process-grid,.about-grid,.connect-grid,.beyond-grid,.system-grid{grid-template-columns:1fr}
   .about-grid{min-height:0}
   .about-photo{min-height:560px}
   .beyond-grid{min-height:0}
   .beyond-media{min-height:540px}
   .metrics{grid-template-columns:repeat(2,1fr)}
+  .result-grid{grid-template-columns:repeat(2,1fr)}
   .connect-mark{display:none}
 }
 @media(max-width:840px){
@@ -906,11 +1083,14 @@ footer a:hover{color:var(--yellow)}
   .hero-right{font-size:16px}
   .section{padding:88px 0}
   .who-copy{font-size:34px}
+  .lead-copy{font-size:26px}
   .work-row{grid-template-columns:1fr;gap:16px;padding:30px 0}
   .work-title h3{font-size:38px}
   .work-stats{justify-items:start}
   .beyond-copy,.about-copy{padding:64px 28px}
   .footer-grid{grid-template-columns:1fr 1fr}
+  .deliverable-row{grid-template-columns:1fr;gap:14px}
+  .fit-columns{grid-template-columns:1fr}
   .whatsapp{right:24px;bottom:24px;width:62px;height:62px}
   .cursor,.cursor-dot{display:none}
 }
@@ -925,6 +1105,7 @@ footer a:hover{color:var(--yellow)}
   .hero-brand{font-size:29px;right:4px;bottom:44px}
   .who-copy{font-size:28px}
   .metrics{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
   .metric{min-height:210px}
   .service-item{grid-template-columns:1fr 32px;gap:14px}
   .service-num{grid-column:1 / -1}
@@ -943,7 +1124,7 @@ footer a:hover{color:var(--yellow)}
 <div class="loader" aria-hidden="true">
   <div class="loader-brand">
     <div class="loader-n">N</div>
-    <div class="loader-name">Nara</div>
+    <div class="loader-name">Nara Studio</div>
   </div>
 </div>
 <div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-core"></div><div class="cursor-label" id="cursorLabel">Nara</div></div>
@@ -953,11 +1134,12 @@ footer a:hover{color:var(--yellow)}
   <div class="nav-inner">
     <div class="nav-left">
       <a class="is-active" href="#top">Home</a>
-      <a href="#work">Made by Nara</a>
-      <a href="#about">Culture</a>
-      <a href="#process">How we roll</a>
+      <a href="services/index.html">Services</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
     </div>
-    <a class="brand-lockup magnetic" href="#top" aria-label="Nara home">
+    <a class="brand-lockup magnetic" href="#top" aria-label="Nara Studio home">
       <span class="brand-script">N</span>
       <span class="brand-word">Nara<br>Studio</span>
     </a>
@@ -966,7 +1148,7 @@ footer a:hover{color:var(--yellow)}
         <a href="#" aria-label="LinkedIn">in</a>
         <a href="#" aria-label="Instagram">ig</a>
       </div>
-      <a class="button magnetic" href="#connect"><span class="dot">.</span><span>Connect Co</span><span class="spark"></span></a>
+      <a class="button magnetic" href="#connect"><span class="dot">.</span><span>Book Audit</span><span class="spark"></span></a>
       <button class="menu-open-button" id="menuOpen" type="button" aria-label="Open menu" aria-controls="menuPanel" aria-expanded="false"><span></span></button>
     </div>
   </div>
@@ -977,15 +1159,16 @@ footer a:hover{color:var(--yellow)}
   <div class="menu-grid">
     <div class="menu-links">
       <a href="#top">Home</a>
-      <a href="#work">Made by Nara</a>
-      <a href="#about">Culture</a>
-      <a href="#process">How we roll</a>
+      <a href="services/index.html">Services</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
       <a href="#connect">Connect</a>
     </div>
     <div class="menu-aside">
       <div>
-        <span class="label">Studio</span>
-        <p>Melbourne<br>Working worldwide</p>
+        <span class="label">Consulting</span>
+        <p>Personal brand strategy<br>Working worldwide</p>
       </div>
       <div>
         <span class="label">Contact</span>
@@ -1007,26 +1190,33 @@ footer a:hover{color:var(--yellow)}
   <button class="video-toggle is-playing magnetic" id="videoToggle" type="button" aria-label="Pause background video"><span></span></button>
   <div class="hero-stage">
     <div class="hero-left">
-      <span class="eyebrow animate-in">Welcome!</span>
-      <h1 data-split>Nara shapes founders into brands people remember.</h1>
+      <span class="eyebrow animate-in">Personal brand consulting</span>
+      <h1 data-split>Become the name your ideal clients think of first.</h1>
     </div>
     <div class="hero-mark animate-in" aria-hidden="true">
       <div class="hero-n">N</div>
       <div class="hero-brand">Nara</div>
     </div>
-    <p class="hero-right animate-in">We craft reputation systems that stick and stories that move. From a single magnetic message to a full content engine, Nara turns personal expertise into visible momentum.</p>
+    <div class="hero-right animate-in">
+      <p>Nara Studio helps founders, consultants and experts turn their experience into a personal brand that clearly communicates who they are, what they stand for, who they help, and why the market should pay attention.</p>
+      <p class="hero-support">Led by owner and lead creative director Thai Biazzini, the studio connects strategy, content and audience activation into a clearer market presence.</p>
+      <p class="hero-support">People buy from people, especially when the offer is high-trust, expertise-led or relationship-driven. Your personal brand is the foundation of how the market understands, remembers and chooses you.</p>
+      <div class="hero-actions">
+        <a class="button magnetic" href="#connect"><span class="dot">.</span><span>Book a Brand Audit</span><span class="spark"></span></a>
+        <a class="button outline-button magnetic" href="#process"><span>See how it works</span></a>
+      </div>
+    </div>
   </div>
 </header>
 
-<a class="whatsapp magnetic" href="#" aria-label="Message Nara">WA</a>
+<a class="whatsapp magnetic" href="#connect" aria-label="Book a Brand Audit">BA</a>
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track" data-marquee>
-    <span>Connect with Nara</span>
-    <span>Content that moves</span>
-    <span>Positioning with intent</span>
-    <span>Stories at every scale</span>
-    <span>Built for momentum</span>
+    <span>6+ years in agency and marketing roles</span>
+    <span>Brand strategy, content and campaign delivery</span>
+    <span>Personal branding, real estate, ecommerce, hospitality, fashion, finance and purpose-led organisations</span>
+    <span>English / Portuguese / Spanish</span>
   </div>
 </div>
 
@@ -1035,65 +1225,42 @@ footer a:hover{color:var(--yellow)}
     <div class="small-shell who-grid">
       <div class="who-side animate-in">
         <div>
-          <span class="section-number">[ 00 ]</span>
-          <h3>Who are we?</h3>
+          <span class="section-number">[ 01 ]</span>
+          <h3>Brand foundation</h3>
         </div>
         <div class="chip-row">
           <span class="chip">Founders</span>
+          <span class="chip">Consultants</span>
           <span class="chip">Experts</span>
-          <span class="chip">Women-led brands</span>
-          <span class="chip">Personal brands</span>
+          <span class="chip">Operators</span>
         </div>
       </div>
-      <p class="who-copy" data-split>Trusted by ambitious founders not because Nara chases volume, but because every message is crafted with intention. From positioning and cinematic content to high-end activation, every detail is built to create impact from the first idea to the public rollout. <strong>Looking for a partner that thinks big? Let's talk.</strong></p>
+      <p class="who-copy">Most capable people are better than their online presence suggests. Nara Studio helps close that gap through brand strategy, content creation and audience activation. <strong>Clearer message. Stronger trust. Better conversations.</strong></p>
     </div>
   </section>
 
   <div class="marquee dark" aria-hidden="true">
     <div class="marquee-track" data-marquee data-direction="right">
-      <span>Made by Nara</span>
-      <span>Made by Nara</span>
-      <span>Made by Nara</span>
-      <span>Made by Nara</span>
+      <span>Personal brand is not vanity</span>
+      <span>Trust is built before the sales call</span>
+      <span>Clarity compounds</span>
+      <span>Visibility needs a system</span>
     </div>
   </div>
 
-  <section class="section dark" id="work" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b" data-cursor-label="Take a look">
+  <section class="section dark" id="belief" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b" data-cursor-label="Read">
     <div class="shell">
       <div class="works-header">
         <div class="animate-in">
-          <span class="section-number">[ 00 ]</span>
-          <h3>The works</h3>
+          <span class="section-number">[ 02 ]</span>
+          <h3>Belief</h3>
         </div>
         <div>
-          <h2 data-split>Every frame tells the story too.</h2>
-          <p class="animate-in">This is Made by Nara: a showcase of strategy, content and activation shaped for founders who want sharper public momentum.</p>
+          <h2 data-split>Your personal brand is the foundation of your market presence.</h2>
+          <p class="belief-copy animate-in">Before someone books a call, refers a client, invites you into a room or chooses to work with you, they are usually deciding whether they understand what you do, trust how you think and see you consistently around the thing they need help with.</p>
+          <p class="belief-copy animate-in">Most capable people are not short on expertise. They are underselling themselves because their positioning is unclear, their content is inconsistent, and their online presence does not reflect the level of value they can actually deliver. Nara Studio closes that gap.</p>
         </div>
       </div>
-      <article class="work-row animate-in" data-cursor-label="Launch film">
-        <span class="work-index">[ 01 ]</span>
-        <div class="work-title">
-          <h3>Red Dust Role Models</h3>
-          <p>Purpose-led storytelling, donor communications and partnership content for a national organisation.</p>
-        </div>
-        <div class="work-stats"><span>Scope National</span><span>Delivery Story system</span></div>
-      </article>
-      <article class="work-row animate-in" data-cursor-label="Brand engine">
-        <span class="work-index">[ 02 ]</span>
-        <div class="work-title">
-          <h3>Fortem Media</h3>
-          <p>Portfolio marketing across hospitality, property, e-commerce, automotive, fashion and finance.</p>
-        </div>
-        <div class="work-stats"><span>Industries 8</span><span>Role Strategy</span></div>
-      </article>
-      <article class="work-row animate-in" data-cursor-label="Founder coaching">
-        <span class="work-index">[ 03 ]</span>
-        <div class="work-title">
-          <h3>Maxx Marketing</h3>
-          <p>Coaching for women-led businesses while growing a social audience to around 90k followers.</p>
-        </div>
-        <div class="work-stats"><span>Founders 40+</span><span>Audience 90k</span></div>
-      </article>
     </div>
   </section>
 
@@ -1106,35 +1273,152 @@ footer a:hover{color:var(--yellow)}
       </div>
       <div class="beyond-copy">
         <div>
-          <span class="section-number">[ 00 ]</span>
-          <h3>Beyond the screen</h3>
+          <span class="section-number">[ 03 ]</span>
+          <h3>The problem</h3>
         </div>
-        <h2 data-split>Content that moves beyond the feed.</h2>
-        <p class="animate-in">From intimate tap-and-scroll moments to campaign-scale launches, Nara builds personal brand content for the way audiences actually discover, trust and buy from people.</p>
+        <h2 data-split>You are good at what you do. The market just cannot see it clearly yet.</h2>
+        <p class="animate-in">Most founders, consultants and experts do not have a capability problem. They have a visibility and communication problem.</p>
+        <ul class="text-list animate-in">
+          <li>Your profile does not clearly explain what you want to be known for.</li>
+          <li>Your content feels reactive, inconsistent or disconnected.</li>
+          <li>Your best thinking happens in private conversations, not in public.</li>
+          <li>You are relying on referrals, but not building a visible reputation that compounds.</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <section class="section dark" id="numbers" data-cursor-fill="#eeeeee" data-cursor-text="#1d1d1b" data-cursor-label="Proof">
     <div class="shell">
-      <span class="section-number animate-in">[ 00 ]</span>
+      <span class="section-number animate-in">[ 04 ]</span>
       <div class="metrics">
         <div class="metric animate-in">
-          <div class="metric-value"><span data-count="8">0</span>+</div>
-          <div class="metric-label">Years in brand and marketing</div>
+          <div class="metric-value"><span data-count="6">0</span>+</div>
+          <div class="metric-label">Years inside agency and marketing roles</div>
         </div>
         <div class="metric animate-in">
-          <div class="metric-value"><span data-count="40">0</span>+</div>
-          <div class="metric-label">Founders coached</div>
+          <div class="metric-value"><span data-count="7">0</span></div>
+          <div class="metric-label">Category lenses across brand, commerce and purpose-led work</div>
         </div>
         <div class="metric animate-in">
-          <div class="metric-value"><span data-count="90">0</span>k</div>
-          <div class="metric-label">Audience built</div>
+          <div class="metric-value"><span data-count="3">0</span></div>
+          <div class="metric-label">Languages: English, Portuguese and Spanish</div>
         </div>
         <div class="metric animate-in">
-          <div class="metric-value"><span data-count="8">0</span></div>
-          <div class="metric-label">Industries served</div>
+          <div class="metric-value"><span data-count="1">0</span></div>
+          <div class="metric-label">Clear system connecting strategy, content and activation</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="system" data-cursor-fill="#eeeeee" data-cursor-text="#1d1d1b" data-cursor-label="Build">
+    <div class="small-shell system-grid">
+      <div class="system-copy">
+        <span class="section-number animate-in">[ 05 ]</span>
+        <h2 data-split>A personal brand system that connects strategy, content and market activation.</h2>
+        <p class="animate-in">Nara Studio's system turns your expertise into a clear, repeatable and visible market presence. The outcome is not just better content. The outcome is a personal brand that makes you easier to understand, easier to trust and easier to choose.</p>
+      </div>
+      <div class="system-list">
+        <div class="system-item animate-in"><span>[ 01 ]</span><p>A clear brand position</p></div>
+        <div class="system-item animate-in"><span>[ 02 ]</span><p>A defined audience and core message</p></div>
+        <div class="system-item animate-in"><span>[ 03 ]</span><p>A content strategy built around your real expertise</p></div>
+        <div class="system-item animate-in"><span>[ 04 ]</span><p>A repeatable content production process</p></div>
+        <div class="system-item animate-in"><span>[ 05 ]</span><p>A consistent publishing rhythm</p></div>
+        <div class="system-item animate-in"><span>[ 06 ]</span><p>A structure for turning attention into meaningful conversations</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="services" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b" data-cursor-label="Open">
+    <div class="shell">
+      <div class="works-header">
+        <div class="animate-in">
+          <span class="section-number">[ 06 ]</span>
+          <h3>Services</h3>
+        </div>
+        <div>
+          <h2 data-split>Focused services for each part of the brand system.</h2>
+          <p class="animate-in">Start with the audit, or explore the strategy, content and activation layers that turn personal credibility into market presence.</p>
+        </div>
+      </div>
+      <a class="work-row animate-in" href="services/brand-audit.html" data-cursor-label="Open service">
+        <span class="work-index">[ 01 ]</span>
+        <div class="work-title">
+          <h3>Brand Audit</h3>
+          <p>A complete review of your current profile, positioning, content and market presence.</p>
+        </div>
+        <div class="work-stats"><span>Diagnose</span><span>Clarify</span></div>
+      </a>
+      <a class="work-row animate-in" href="services/positioning-strategy.html" data-cursor-label="Open service">
+        <span class="work-index">[ 02 ]</span>
+        <div class="work-title">
+          <h3>Positioning Strategy</h3>
+          <p>A clear foundation for what you want to be known for, who you help and why your perspective matters.</p>
+        </div>
+        <div class="work-stats"><span>Define</span><span>Focus</span></div>
+      </a>
+      <a class="work-row animate-in" href="services/content-engine.html" data-cursor-label="Open service">
+        <span class="work-index">[ 03 ]</span>
+        <div class="work-title">
+          <h3>Content Engine</h3>
+          <p>A repeatable system for turning your stories, insights and expertise into strategic content assets.</p>
+        </div>
+        <div class="work-stats"><span>Create</span><span>Repeat</span></div>
+      </a>
+      <a class="work-row animate-in" href="services/audience-activation.html" data-cursor-label="Open service">
+        <span class="work-index">[ 04 ]</span>
+        <div class="work-title">
+          <h3>Audience Activation</h3>
+          <p>A structure for helping the right people see, remember and respond to your message.</p>
+        </div>
+        <div class="work-stats"><span>Reach</span><span>Connect</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section dark" id="case-studies" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b" data-cursor-label="Study">
+    <div class="shell">
+      <div class="works-header">
+        <div class="animate-in">
+          <span class="section-number">[ 07 ]</span>
+          <h3>Featured case studies</h3>
+        </div>
+        <div>
+          <h2 data-split>What clear personal brands look like in the market.</h2>
+          <p class="animate-in">Two public examples showing how mission, proof, category association and repeat visibility build trust before a conversation begins.</p>
+        </div>
+      </div>
+      <a class="work-row animate-in" href="case-studies/sean-bell-run-around-australia.html" data-cursor-label="Read case">
+        <span class="work-index">[ 01 ]</span>
+        <div class="work-title">
+          <h3>Sean Bell</h3>
+          <p>How a personal mission became a public brand built on endurance, purpose, community and visible progress.</p>
+        </div>
+        <div class="work-stats"><span>Mission-led</span><span>Endurance brand</span></div>
+      </a>
+      <a class="work-row animate-in" href="case-studies/shiv-nair-real-estate.html" data-cursor-label="Read case">
+        <span class="work-index">[ 02 ]</span>
+        <div class="work-title">
+          <h3>Shiv Nair</h3>
+          <p>How a proof-led real estate brand builds local authority, trust and commercial context before the sales conversation.</p>
+        </div>
+        <div class="work-stats"><span>Expert-led</span><span>Local authority</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section dark" id="results" data-cursor-fill="#eeeeee" data-cursor-text="#1d1d1b" data-cursor-label="Proof">
+    <div class="shell">
+      <span class="section-number animate-in">[ 08 ]</span>
+      <h2 data-split>What the system produces</h2>
+      <div class="result-grid">
+        <div class="result-card animate-in"><h3>A clearer market position</h3><p>People understand what you do, who you help and why your perspective matters.</p></div>
+        <div class="result-card animate-in"><h3>A stronger reputation</h3><p>Your audience sees your expertise consistently, not just when they happen to speak with you directly.</p></div>
+        <div class="result-card animate-in"><h3>More trust before the sales conversation</h3><p>By the time someone reaches out, they already have a stronger sense of how you think and what you stand for.</p></div>
+        <div class="result-card animate-in"><h3>Better quality conversations</h3><p>The right people have more context before they speak with you, which creates warmer and more relevant opportunities.</p></div>
+        <div class="result-card animate-in"><h3>A repeatable content engine</h3><p>You have a system for creating, approving, publishing and learning from content without reinventing the process every cycle.</p></div>
+        <div class="result-card animate-in"><h3>A founder-led growth asset</h3><p>Your personal brand supports sales, partnerships, hiring, speaking opportunities and market authority.</p></div>
       </div>
     </div>
   </section>
@@ -1142,25 +1426,122 @@ footer a:hover{color:var(--yellow)}
   <section class="section light" id="process" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3" data-cursor-label="Open">
     <div class="small-shell process-grid">
       <div class="process-copy">
-        <span class="section-number animate-in">[ 00 ]</span>
-        <h2 data-split>How we roll</h2>
-        <p class="animate-in">Nara listens first and creates with you, not just for you. Everything is fast, focused and built like a compact team around your reputation.</p>
+        <span class="section-number animate-in">[ 09 ]</span>
+        <h2 data-split>Here is how it works</h2>
+        <p class="animate-in">A personal brand is not built by posting more. It is built by repeating the right message, to the right audience, with enough clarity and consistency that the market starts to remember you for it.</p>
       </div>
       <div class="service-list">
         <div class="service-item is-open animate-in">
           <span class="service-num">[ 01 ]</span>
-          <div><h3>Positioning that lands</h3><p>We define what you are known for, who needs to know it and how the market should repeat it back.</p></div>
-          <span class="plus"></span><button type="button" aria-label="Toggle positioning details"></button>
+          <div>
+            <h3>Get your complete brand picture</h3>
+            <div class="service-body">
+              <p>We start by understanding where you are now and what your market currently sees across your profile, content, positioning, audience, offer, tone and visual presence.</p>
+              <span class="mini-title">Deliverables</span>
+              <ul class="detail-list"><li>Personal brand audit</li><li>Profile and presence review</li><li>Positioning diagnosis</li><li>Opportunity map</li></ul>
+              <span class="mini-title">Result</span>
+              <p>You understand where your current brand is helping, where it is holding you back, and what needs to change.</p>
+            </div>
+          </div>
+          <span class="plus"></span><button type="button" aria-label="Toggle brand picture details"></button>
         </div>
         <div class="service-item animate-in">
           <span class="service-num">[ 02 ]</span>
-          <div><h3>Video that carries the story</h3><p>Launch reels, thought-leadership clips and brand films designed to make your expertise easier to feel.</p></div>
-          <span class="plus"></span><button type="button" aria-label="Toggle video details"></button>
+          <div>
+            <h3>Define what you want to be known for</h3>
+            <div class="service-body">
+              <p>Once the audit is clear, we clarify the message your market should associate with you before creating more content.</p>
+              <span class="mini-title">Deliverables</span>
+              <ul class="detail-list"><li>Personal brand positioning statement</li><li>Audience and buyer clarity</li><li>Core message framework</li><li>Content pillar map</li><li>Voice and tone direction</li></ul>
+              <span class="mini-title">Result</span>
+              <p>You leave with a clear answer to what you want the market to know you for.</p>
+            </div>
+          </div>
+          <span class="plus"></span><button type="button" aria-label="Toggle positioning foundation details"></button>
         </div>
         <div class="service-item animate-in">
           <span class="service-num">[ 03 ]</span>
-          <div><h3>Publishing with rhythm</h3><p>Daily and weekly content systems that build trust without turning the founder into a full-time content manager.</p></div>
-          <span class="plus"></span><button type="button" aria-label="Toggle publishing details"></button>
+          <div>
+            <h3>Build the brand system</h3>
+            <div class="service-body">
+              <p>With the positioning defined, we turn it into a practical system that can be used across your profile, content and campaigns.</p>
+              <span class="mini-title">Deliverables</span>
+              <ul class="detail-list"><li>Profile rewrite direction</li><li>Content style guide</li><li>Visual direction</li><li>Campaign message map</li><li>Brand language guide</li></ul>
+              <span class="mini-title">Result</span>
+              <p>Your brand stops feeling scattered and starts showing up with a clear look, sound and message.</p>
+            </div>
+          </div>
+          <span class="plus"></span><button type="button" aria-label="Toggle brand system details"></button>
+        </div>
+        <div class="service-item animate-in">
+          <span class="service-num">[ 04 ]</span>
+          <div>
+            <h3>Capture the thinking behind the brand</h3>
+            <div class="service-body">
+              <p>Strong personal brands are built from real thinking, not generic content. Thai Biazzini, Nara Studio's owner and lead creative director, extracts the stories, lessons, beliefs and opinions already inside your work.</p>
+              <span class="mini-title">Deliverables</span>
+              <ul class="detail-list"><li>Raw idea bank</li><li>Story bank</li><li>Insight library</li><li>Content angles from your real expertise</li><li>Thought leadership prompts</li></ul>
+              <span class="mini-title">Result</span>
+              <p>Your best thinking becomes a structured source of content.</p>
+            </div>
+          </div>
+          <span class="plus"></span><button type="button" aria-label="Toggle idea capture details"></button>
+        </div>
+        <div class="service-item animate-in">
+          <span class="service-num">[ 05 ]</span>
+          <div>
+            <h3>Turn expertise into content assets</h3>
+            <div class="service-body">
+              <p>The focus is not to create more noise. The focus is to create assets that build association, trust and action.</p>
+              <span class="mini-title">Deliverables</span>
+              <ul class="detail-list"><li>Content calendar</li><li>Post concepts</li><li>Video prompts</li><li>Captions and copy</li><li>Creative briefs</li><li>Core CTA integration</li></ul>
+              <span class="mini-title">Result</span>
+              <p>Your brand has a consistent body of content that communicates the same strategic message in different ways.</p>
+            </div>
+          </div>
+          <span class="plus"></span><button type="button" aria-label="Toggle content assets details"></button>
+        </div>
+        <div class="service-item animate-in">
+          <span class="service-num">[ 06 ]</span>
+          <div>
+            <h3>Publish with consistency and intent</h3>
+            <div class="service-body">
+              <p>The publishing system creates the cadence, rhythm and consistency most people fail to maintain on their own.</p>
+              <span class="mini-title">Deliverables</span>
+              <ul class="detail-list"><li>Content schedule</li><li>Channel-ready copy</li><li>Review workflow</li><li>Campaign structure</li><li>Content management</li></ul>
+              <span class="mini-title">Result</span>
+              <p>You stop posting randomly and start showing up with a clear message your audience can recognise.</p>
+            </div>
+          </div>
+          <span class="plus"></span><button type="button" aria-label="Toggle publishing system details"></button>
+        </div>
+        <div class="service-item animate-in">
+          <span class="service-num">[ 07 ]</span>
+          <div>
+            <h3>Activate the right audience</h3>
+            <div class="service-body">
+              <p>Content builds trust. Activation helps the right people actually see it through audience mapping, warm engagement and relationship building.</p>
+              <span class="mini-title">Deliverables</span>
+              <ul class="detail-list"><li>Audience activation plan</li><li>Target audience map</li><li>Engagement recommendations</li><li>Outreach messaging direction</li><li>Relationship-building workflow</li></ul>
+              <span class="mini-title">Result</span>
+              <p>The brand starts creating better conversations with the people who matter.</p>
+            </div>
+          </div>
+          <span class="plus"></span><button type="button" aria-label="Toggle activation details"></button>
+        </div>
+        <div class="service-item animate-in">
+          <span class="service-num">[ 08 ]</span>
+          <div>
+            <h3>Review, learn and improve</h3>
+            <div class="service-body">
+              <p>Personal branding is a feedback loop. We review what is resonating, what is creating conversations, what is building trust and what needs to be adjusted.</p>
+              <span class="mini-title">Deliverables</span>
+              <ul class="detail-list"><li>Performance review</li><li>Content learnings</li><li>KPI summary</li><li>Messaging refinements</li><li>Campaign iteration notes</li></ul>
+              <span class="mini-title">Result</span>
+              <p>The brand gets sharper over time and becomes informed by what the market actually responds to.</p>
+            </div>
+          </div>
+          <span class="plus"></span><button type="button" aria-label="Toggle review details"></button>
         </div>
       </div>
     </div>
@@ -1169,32 +1550,86 @@ footer a:hover{color:var(--yellow)}
   <section class="about-panel" id="about" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b" data-cursor-label="Nara">
     <div class="about-grid">
       <div class="about-photo animate-in">
-        <img src="assets/nara-portrait.jpg" alt="Black and white portrait for Nara">
+        <img src="assets/nara-portrait.jpg" alt="Black and white portrait of Thai Biazzini, owner and lead creative director of Nara Studio">
       </div>
       <div class="about-copy">
-        <span class="section-number animate-in">[ 00 ]</span>
-        <h2 data-split>Culture starts with clarity.</h2>
-        <p class="animate-in">Nara is for founders who have substance, ambition and a story worth sharpening. The work blends strategy, direction and production so a personal brand feels intentional rather than improvised.</p>
-        <p class="animate-in">The result is a reputation system that looks refined, moves quickly and makes the founder easier to understand, easier to trust and harder to ignore.</p>
+        <span class="section-number animate-in">[ 10 ]</span>
+        <h2 data-split>Nara Studio is led by Thai Biazzini.</h2>
+        <p class="animate-in">Thai is the owner and lead creative director of Nara Studio. She created the studio after spending 6 years across agency and marketing roles, working close to the strategy, content, creative and execution layers that help brands grow.</p>
+        <p class="animate-in">Across that time, she saw the same pattern repeat across industries: the people with the clearest personal brands built trust faster, attracted better opportunities, and became easier to buy from.</p>
+        <p class="animate-in">Thai's belief is simple: personal brand is not vanity. Through Nara Studio, she helps clients build the foundation for stronger market presence and long-term commercial leverage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="deliverables" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3" data-cursor-label="Scan">
+    <div class="shell">
+      <div class="works-header">
+        <div class="animate-in">
+          <span class="section-number">[ 11 ]</span>
+          <h3>Deliverables</h3>
+        </div>
+        <div>
+          <h2 data-split>What you receive, and what it helps create.</h2>
+        </div>
+      </div>
+      <div class="deliverables-grid">
+        <div class="deliverable-row animate-in"><h3>Brand audit</h3><p>A clear review of your current presence, positioning, profile and content.</p><p>Clarity on what is working, what is missing and where the opportunity is.</p></div>
+        <div class="deliverable-row animate-in"><h3>Positioning strategy</h3><p>Your audience, message, point of view, content pillars and CTA.</p><p>A clear association between your name and your expertise.</p></div>
+        <div class="deliverable-row animate-in"><h3>Brand system</h3><p>Profile direction, voice, visual direction, content formats and campaign themes.</p><p>A consistent way to show up across your chosen channel.</p></div>
+        <div class="deliverable-row animate-in"><h3>Content engine</h3><p>Prompts, scripts, captions, creative briefs, content calendar and publishing rhythm.</p><p>Consistent content that builds visibility and trust.</p></div>
+        <div class="deliverable-row animate-in"><h3>Audience activation</h3><p>Audience map, engagement direction, outreach messaging and relationship workflow.</p><p>More relevant attention and better conversations.</p></div>
+        <div class="deliverable-row animate-in"><h3>Performance loop</h3><p>Review, KPI tracking, content learnings and iteration priorities.</p><p>A brand that improves based on real market response.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="fit" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3" data-cursor-label="Fit">
+    <div class="small-shell">
+      <span class="section-number animate-in">[ 12 ]</span>
+      <h2 data-split>Who this is for</h2>
+      <div class="fit-columns">
+        <div class="fit-card animate-in">
+          <h3>This is for people who:</h3>
+          <ul class="text-list">
+            <li>Have real expertise but are not communicating it clearly online.</li>
+            <li>Want to be known for a specific problem, market or point of view.</li>
+            <li>Need their reputation to support sales, partnerships or growth.</li>
+            <li>Are ready to show up consistently.</li>
+            <li>Want content that sounds like them, not generic marketing.</li>
+            <li>Understand that trust is built before the sales call.</li>
+          </ul>
+        </div>
+        <div class="fit-card animate-in">
+          <h3>This is not for people who:</h3>
+          <ul class="text-list">
+            <li>Want viral content with no clear strategy.</li>
+            <li>Are not willing to share their perspective.</li>
+            <li>Want to outsource every part of relationship building.</li>
+            <li>Refuse to engage with their own audience.</li>
+            <li>See personal brand as a short-term hack.</li>
+            <li>Are not ready to be clear about what they want to be known for.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track" data-marquee>
-      <span>Connect with Nara</span>
-      <span>Connect with Nara</span>
-      <span>Connect with Nara</span>
-      <span>Connect with Nara</span>
+      <span>People buy from people</span>
+      <span>Make your reputation deliberate</span>
+      <span>Build trust before the call</span>
+      <span>Become easier to choose</span>
     </div>
   </div>
 
   <section class="connect" id="connect" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3" data-cursor-label="Connect">
     <div class="shell connect-grid">
       <div>
-        <span class="section-number animate-in">[ 00 ]</span>
-        <h2 data-split>Let's build the reputation people remember.</h2>
-        <p class="animate-in">If you want a personal brand that combines clarity, craft and speed, let's make something remarkable.</p>
+        <span class="section-number animate-in">[ 13 ]</span>
+        <h2 data-split>Your reputation is being built right now, with or without you.</h2>
+        <p class="animate-in">Let's make it deliberate.</p>
         <a class="button magnetic" href="#"><span class="dot">.</span><span>Book your Brand Audit</span><span class="spark"></span></a>
       </div>
       <div class="connect-mark animate-in" aria-hidden="true">N</div>
@@ -1207,7 +1642,7 @@ footer a:hover{color:var(--yellow)}
     <div class="footer-grid">
       <div>
         <div class="footer-title">Nara Studio</div>
-        <p>Personal brand strategy and content activation for founders who want to be known for something and paid for it.</p>
+        <p>Personal brand strategy, content systems and audience activation. Led by owner and lead creative director Thai Biazzini.</p>
       </div>
       <div>
         <div class="footer-title">Contact</div>
@@ -1221,9 +1656,10 @@ footer a:hover{color:var(--yellow)}
       </div>
       <div>
         <div class="footer-title">Sitemap</div>
-        <a href="#work">Made by Nara</a>
-        <a href="#about">Culture</a>
-        <a href="#process">How we roll</a>
+        <a href="services/index.html">Services</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
         <a href="#connect">Connect</a>
       </div>
     </div>
