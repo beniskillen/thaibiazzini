@@ -236,6 +236,12 @@ p{font-weight:400}
   align-items:center;
   gap:12px;
   color:var(--white);
+  transition:opacity .3s ease,transform .3s ease;
+}
+.nav.is-logo-hidden .brand-lockup{
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(-10px) scale(.94);
 }
 .brand-script{
   font-family:var(--script);
@@ -366,20 +372,20 @@ p{font-weight:400}
   width:min(100% - 80px, 1920px);
   margin:0 auto;
   display:grid;
-  grid-template-columns:1fr 1.05fr 1fr;
+  grid-template-columns:minmax(0,.95fr) minmax(360px,.7fr);
   align-items:center;
-  gap:40px;
+  gap:min(9vw,150px);
   padding:128px 0 76px;
 }
-.hero-left{align-self:end;max-width:620px;padding-bottom:62px}
+.hero-left{align-self:end;max-width:760px;padding-bottom:62px}
 .hero-left h1{
   margin-top:14px;
   color:var(--yellow);
-  max-width:620px;
+  max-width:760px;
 }
 .hero-right{
   justify-self:end;
-  max-width:440px;
+  max-width:560px;
   align-self:center;
   text-align:right;
   color:var(--yellow);
@@ -399,45 +405,8 @@ p{font-weight:400}
   gap:14px;
   justify-content:flex-end;
 }
-.hero-mark{
-  justify-self:center;
-  position:relative;
-  width:480px;
-  height:480px;
-  display:grid;
-  place-items:center;
-  color:var(--yellow);
-}
-.hero-n{
-  font-family:var(--script);
-  font-size:430px;
-  line-height:.74;
-  font-weight:400;
-  transform:rotate(-6deg);
-  text-shadow:0 20px 70px rgba(0,0,0,.24);
-}
-.hero-brand{
-  position:absolute;
-  right:42px;
-  bottom:92px;
-  font-size:60px;
-  line-height:.9;
-  font-weight:600;
-  text-transform:uppercase;
-}
 .side-pill{
-  position:absolute;
-  z-index:5;
-  left:-48px;
-  top:116px;
-  width:142px;
-  height:126px;
-  border-radius:0 40px 40px 0;
-  background:var(--yellow);
-  color:var(--ink);
-  display:grid;
-  place-items:center;
-  overflow:hidden;
+  display:none;
 }
 .side-pill .spin{
   position:relative;
@@ -1050,9 +1019,6 @@ footer a:hover{color:var(--yellow)}
   .hero-left{align-self:end;padding-bottom:0}
   .hero-right{justify-self:start;text-align:left;max-width:620px}
   .hero-actions{justify-content:flex-start}
-  .hero-mark{width:360px;height:310px;justify-self:start}
-  .hero-n{font-size:310px}
-  .hero-brand{font-size:44px;right:22px;bottom:58px}
   .who-grid,.works-header,.process-grid,.about-grid,.connect-grid,.beyond-grid,.system-grid{grid-template-columns:1fr}
   .about-grid{min-height:0}
   .about-photo{min-height:560px}
@@ -1077,9 +1043,6 @@ footer a:hover{color:var(--yellow)}
   h1{font-size:40px}
   h2,.connect h2{font-size:48px}
   h3,.service-item h3{font-size:30px}
-  .hero-n{font-size:240px}
-  .hero-brand{font-size:34px}
-  .hero-mark{width:280px;height:250px}
   .hero-right{font-size:16px}
   .section{padding:88px 0}
   .who-copy{font-size:34px}
@@ -1100,9 +1063,6 @@ footer a:hover{color:var(--yellow)}
   .video-toggle{bottom:32px;width:70px;height:70px}
   .hero-left h1{font-size:34px}
   h2,.connect h2{font-size:40px}
-  .hero-mark{width:220px;height:220px}
-  .hero-n{font-size:210px}
-  .hero-brand{font-size:29px;right:4px;bottom:44px}
   .who-copy{font-size:28px}
   .metrics{grid-template-columns:1fr}
   .result-grid{grid-template-columns:1fr}
@@ -1127,7 +1087,7 @@ footer a:hover{color:var(--yellow)}
     <div class="loader-name">Nara Studio</div>
   </div>
 </div>
-<div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-core"></div><div class="cursor-label" id="cursorLabel">Nara</div></div>
+<div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-core"></div><div class="cursor-label" id="cursorLabel">Nara Studio</div></div>
 <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
 <nav class="nav" id="nav" aria-label="Main navigation">
@@ -1178,24 +1138,17 @@ footer a:hover{color:var(--yellow)}
   </div>
 </aside>
 
-<header class="hero" id="top" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b" data-cursor-label="Play">
+<header class="hero" id="top" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b">
   <div class="hero-media">
     <video id="heroVideo" autoplay muted loop playsinline poster="assets/nara-portrait.jpg">
       <source src="assets/table-manners/A vintage soak Why not. This summer, let the wine flow and the rules slide. Your spot to sip, sp.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="side-pill" aria-hidden="true">
-    <div class="spin" id="spinText"></div>
-  </div>
-  <button class="video-toggle is-playing magnetic" id="videoToggle" type="button" aria-label="Pause background video"><span></span></button>
+  <button class="video-toggle is-playing magnetic" id="videoToggle" type="button" aria-label="Pause background video" data-cursor-label="Play"><span></span></button>
   <div class="hero-stage">
     <div class="hero-left">
       <span class="eyebrow animate-in">Personal brand consulting</span>
       <h1 data-split>Become the name your ideal clients think of first.</h1>
-    </div>
-    <div class="hero-mark animate-in" aria-hidden="true">
-      <div class="hero-n">N</div>
-      <div class="hero-brand">Nara</div>
     </div>
     <div class="hero-right animate-in">
       <p>Nara Studio helps founders, consultants and experts turn their experience into a personal brand that clearly communicates who they are, what they stand for, who they help, and why the market should pay attention.</p>
@@ -1686,6 +1639,7 @@ footer a:hover{color:var(--yellow)}
   const cursorLabel = document.getElementById('cursorLabel');
   const heroVideo = document.getElementById('heroVideo');
   const videoToggle = document.getElementById('videoToggle');
+  const defaultCursorLabel = 'Nara Studio';
 
   function splitText(el){
     const text = el.textContent.trim();
@@ -1703,17 +1657,6 @@ footer a:hover{color:var(--yellow)}
   }
 
   document.querySelectorAll('[data-split]').forEach(splitText);
-
-  const spinText = document.getElementById('spinText');
-  if(spinText){
-    const copy = 'Play Video Nara Studio ';
-    copy.split('').forEach((letter, index) => {
-      const span = document.createElement('span');
-      span.textContent = letter;
-      span.style.transform = 'rotate(' + (index * 360 / copy.length) + 'deg) translate(47px)';
-      spinText.appendChild(span);
-    });
-  }
 
   function openMenu(){
     document.body.classList.add('menu-open');
@@ -1762,6 +1705,7 @@ footer a:hover{color:var(--yellow)}
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('is-solid', window.scrollY > 24);
+    nav.classList.toggle('is-logo-hidden', window.scrollY > 120);
   }, {passive:true});
 
   document.querySelectorAll('[data-marquee]').forEach(track => {
@@ -1800,8 +1744,6 @@ footer a:hover{color:var(--yellow)}
     {y:34,opacity:0},
     {y:0,opacity:1,duration:.82,stagger:.1,ease:'power3.out',delay:.72}
   );
-  gsap.fromTo('.hero-n',{y:50,rotate:-15,opacity:0},{y:0,rotate:-6,opacity:1,duration:1.05,ease:'power4.out',delay:.72});
-  gsap.to('.hero-n',{y:-80,rotate:3,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
   gsap.to('.hero-media video',{scale:1.08,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
 
   document.querySelectorAll('[data-split]:not(.hero [data-split])').forEach(el => {
@@ -1848,11 +1790,11 @@ footer a:hover{color:var(--yellow)}
   document.querySelectorAll('a,button,.service-item,.work-row').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.classList.add(el.classList.contains('work-row') || el.classList.contains('video-toggle') ? 'is-large' : 'is-small');
-      if(el.dataset.cursorLabel) cursorLabel.textContent = el.dataset.cursorLabel;
+      cursorLabel.textContent = el.dataset.cursorLabel === 'Play' ? 'Play' : defaultCursorLabel;
     });
     el.addEventListener('mouseleave', () => {
       cursor.classList.remove('is-small','is-large');
-      cursorLabel.textContent = document.body.dataset.cursorLabel || 'Nara';
+      cursorLabel.textContent = defaultCursorLabel;
     });
   });
 
@@ -1869,8 +1811,7 @@ footer a:hover{color:var(--yellow)}
   function setCursorTheme(section){
     document.documentElement.style.setProperty('--cursor-fill', section.dataset.cursorFill);
     document.documentElement.style.setProperty('--cursor-text', section.dataset.cursorText);
-    document.body.dataset.cursorLabel = section.dataset.cursorLabel || 'Nara';
-    cursorLabel.textContent = document.body.dataset.cursorLabel;
+    cursorLabel.textContent = defaultCursorLabel;
   }
 
   document.querySelectorAll('.magnetic').forEach(el => {
