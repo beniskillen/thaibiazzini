@@ -1,5 +1,5 @@
 ---
-import { nav, site } from '../data/site';
+import { nav, site, withBase } from '../data/site';
 
 interface Props {
   currentPath: string;
@@ -14,13 +14,13 @@ const isCurrent = (href: string) =>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="shell nav-inner">
-    <a class="brand" href="/" aria-label="NARA Studio home">
+    <a class="brand" href={withBase('/')} aria-label="NARA Studio home">
       <span class="brand-mark" aria-hidden="true">N</span>
       <span class="brand-word">NARA<br />Studio</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       {nav.map((item) => (
-        <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+        <a href={withBase(item.href)} aria-current={isCurrent(item.href) ? 'page' : undefined}>
           {item.label}
         </a>
       ))}
@@ -28,7 +28,7 @@ const isCurrent = (href: string) =>
     <div class="nav-cta">
       <a
         class="btn btn-primary"
-        href={site.primaryCtaHref}
+        href={withBase(site.primaryCtaHref)}
         data-track="primary_cta_click"
         data-track-meta="nav"
       >
@@ -44,21 +44,21 @@ const isCurrent = (href: string) =>
 
 <div class="mobile-nav" id="mobile-nav" hidden data-mobile-nav>
   <div class="mobile-nav-top">
-    <a class="brand" href="/" aria-label="NARA Studio home">
+    <a class="brand" href={withBase('/')} aria-label="NARA Studio home">
       <span class="brand-mark" aria-hidden="true">N</span>
       <span class="brand-word">NARA<br />Studio</span>
     </a>
     <button class="menu-close" type="button" data-menu-close aria-label="Close menu"></button>
   </div>
   <nav aria-label="Mobile">
-    {nav.map((item) => (
-      <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
-        {item.label}
-      </a>
-    ))}
+      {nav.map((item) => (
+        <a href={withBase(item.href)} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
     <a
       class="btn btn-primary"
-      href={site.primaryCtaHref}
+      href={withBase(site.primaryCtaHref)}
       data-track="primary_cta_click"
       data-track-meta="mobile-nav"
     >

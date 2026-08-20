@@ -1,7 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
-import { absoluteUrl, site } from '../data/site';
+import { absoluteUrl, site, withBase } from '../data/site';
 import '../styles/global.css';
 
 interface Props {
@@ -55,7 +55,7 @@ const structured = jsonLd ?? {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

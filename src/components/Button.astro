@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../data/site';
+
 interface Props {
   href: string;
   variant?: 'primary' | 'secondary' | 'on-dark' | 'ghost-dark';
@@ -11,7 +13,7 @@ const { href, variant = 'primary', event, meta } = Astro.props;
 
 <a
   class={`btn btn-${variant}`}
-  href={href}
+  href={withBase(href)}
   data-track={event}
   data-track-meta={meta}
 >

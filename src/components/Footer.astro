@@ -1,5 +1,5 @@
 ---
-import { footerNav, site } from '../data/site';
+import { footerNav, site, withBase } from '../data/site';
 ---
 
 <footer class="site-footer">
@@ -14,16 +14,16 @@ import { footerNav, site } from '../data/site';
       <div class="footer-title">Navigate</div>
       <div class="footer-links">
         {footerNav.map((item) => (
-          <a href={item.href}>{item.label}</a>
+          <a href={withBase(item.href)}>{item.label}</a>
         ))}
       </div>
     </div>
     <div>
       <div class="footer-title">Next step</div>
       <div class="footer-links">
-        <a href="/apply" data-track="primary_cta_click" data-track-meta="footer">{site.primaryCta}</a>
-        <a href="/method" data-track="method_cta_click" data-track-meta="footer">The Method</a>
-        <a href="/work">Selected work</a>
+        <a href={withBase('/apply')} data-track="primary_cta_click" data-track-meta="footer">{site.primaryCta}</a>
+        <a href={withBase('/method')} data-track="method_cta_click" data-track-meta="footer">The Method</a>
+        <a href={withBase('/work')}>Selected work</a>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 ---
 import { caseStudies } from '../data/cases';
+import { withBase } from '../data/site';
 
 interface Props {
   featured?: boolean;
@@ -13,7 +14,7 @@ const studies = featured ? caseStudies.filter((item) => item.slug !== 'red-dust'
   {studies.map((study) => (
     <a
       class="work-card"
-      href={`/work/${study.slug}`}
+      href={withBase(`/work/${study.slug}`)}
       data-track="case_study_open"
       data-track-meta={study.slug}
     >

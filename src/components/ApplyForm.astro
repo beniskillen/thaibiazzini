@@ -1,5 +1,6 @@
 ---
 import { applyStartOptions, audienceSources } from '../lib/application';
+import { withBase } from '../data/site';
 
 const startFromQuery = Astro.url.searchParams.get('start') || '';
 ---
@@ -103,7 +104,7 @@ const startFromQuery = Astro.url.searchParams.get('start') || '';
     <input type="checkbox" name="consent" value="yes" required />
     <span>
       I agree that NARA Studio can use these details to assess fit and reply about working together. We will not sell your information. See
-      <a href="/privacy">Privacy</a>.
+      <a href={withBase('/privacy')}>Privacy</a>.
     </span>
   </label>
   <small class="field-error" data-error-for="consent" hidden></small>

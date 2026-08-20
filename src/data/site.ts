@@ -26,13 +26,28 @@ export const footerNav = [
 ] as const;
 
 export function siteUrl(): string {
-  return (import.meta.env.PUBLIC_SITE_URL || 'https://beniskillen.github.io/thaibiazzini').replace(
+  return (import.meta.env.PUBLIC_SITE_URL || 'https://beniskillen.github.io/nara-studio').replace(
     /\/$/,
     '',
   );
 }
 
+export function withBase(path = '/'): string {
+  const raw = import.meta.env.BASE_URL || '/';
+  const base = raw.endsWith('/') ? raw : `${raw}/`;
+  if (path.startsWith('http') || path.startsWith('#') || path.startsWith('mailto:')) return path;
+  if (!path || path === '/') return base;
+
+  const [pathname, search] = path.split('?');
+  const cleanPath = pathname.startsWith('/') ? pathname.slice(1) : pathname;
+  const url = `${base}${cleanPath}`;
+  return search ? `${url}?${search}` : url;
+}
+
 export function absoluteUrl(path = '/'): string {
-  const normalised = path.startsWith('/') ? path : `/${path}`;
-  return `${siteUrl()}${normalised === '/' ? '/' : normalised}`;
+  if (path.startsWith('http')) return path;
+  const origin = new URL(siteUrl()).origin;
+  const prefixed = withBase(path);
+  if (prefixed.startsWith('http')) return prefixed;
+  return `${origin}${prefixed.startsWith('/') ? prefixed : `/${prefixed}`}`;
 }

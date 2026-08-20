@@ -5,7 +5,7 @@ import CtaBand from '../components/CtaBand.astro';
 import Mechanism from '../components/Mechanism.astro';
 import ProofStrip from '../components/ProofStrip.astro';
 import { homepageServices } from '../data/services';
-import { site } from '../data/site';
+import { site, withBase } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const proof = [
@@ -209,7 +209,7 @@ const proof = [
         <figure class="portrait-frame">
           <img
             class="portrait"
-            src="/images/nara-portrait.jpg"
+            src={withBase('/images/nara-portrait.jpg')}
             width="960"
             height="1200"
             alt="Black and white portrait of Thai Biazzini, founder of NARA Studio, seated in a studio chair."

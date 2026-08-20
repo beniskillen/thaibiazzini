@@ -1,7 +1,7 @@
 ---
 import Button from '../components/Button.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { site } from '../data/site';
+import { site, withBase } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -16,7 +16,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <figure class="portrait-frame">
           <img
             class="portrait"
-            src="/images/nara-portrait.jpg"
+            src={withBase('/images/nara-portrait.jpg')}
             width="960"
             height="1200"
             alt="Black and white portrait of Thai Biazzini, founder of NARA Studio, wearing a tailored suit."
