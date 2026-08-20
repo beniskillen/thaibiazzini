@@ -1,0 +1,238 @@
+---
+import Button from '../components/Button.astro';
+import CaseCard from '../components/CaseCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Mechanism from '../components/Mechanism.astro';
+import ProofStrip from '../components/ProofStrip.astro';
+import { homepageServices } from '../data/services';
+import { site } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const proof = [
+  { value: 'A$175k', label: 'approximate funds raised' },
+  { value: 'A$40k', label: 'stated campaign target' },
+  { value: '500+', label: 'personalised warm messages' },
+  { value: '4.4×', label: 'target achieved' },
+];
+---
+
+<BaseLayout
+  title="Revenue-Driven Personal Branding | NARA Studio"
+  description="NARA Studio activates your warmest market, proves what creates conversations and revenue, then builds the founder brand around that evidence."
+  path="/"
+>
+  <main id="main">
+    <section class="hero">
+      <div class="wide-shell hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">{site.category}</span>
+          <h1>Turn your personal brand into a revenue channel.</h1>
+          <p class="lede muted">
+            NARA Studio activates the people already closest to your business, tracks what creates real commercial movement, then turns that evidence into a sharper message, stronger content and repeatable growth.
+          </p>
+          <div class="actions">
+            <Button href="/apply" event="primary_cta_click" meta="hero">{site.primaryCta}</Button>
+            <Button href="/method" variant="secondary" event="method_cta_click" meta="hero">See the Method</Button>
+          </div>
+          <p class="microcopy">For founders, consultants and experts with real proof, a clear offer and an underused network.</p>
+        </div>
+        <Mechanism compact />
+      </div>
+    </section>
+
+    <ProofStrip items={proof} note="Selected prior work led by Thai. Fundraising result shown separately from later programme metrics." />
+
+    <section class="section">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">Market shift</span>
+          <h2>Your warmest market is probably sitting untouched.</h2>
+        </div>
+        <div class="stack">
+          <p class="lede">Most personal-brand firms begin with a content calendar.</p>
+          <p class="muted">
+            We begin with the people who already know the founder, follow the work, opened an email, donated before, bought before, asked a question, made a referral or fit the immediate market.
+          </p>
+          <p>They are the fastest route to three things every brand needs: <strong>conversations, evidence and revenue.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">Hidden problem</span>
+          <h2>More content does not fix an unproven message.</h2>
+        </div>
+        <div class="stack">
+          <p class="lede">If the right people do not respond, publishing harder will not solve the problem.</p>
+          <p>
+            The offer may be unclear. The proof may be weak. The message may be too broad. The brand may be saying something the market does not care about.
+          </p>
+          <p>
+            NARA tests those assumptions close to the customer first. Then we build the public brand around what earns attention and action.
+          </p>
+          <div class="contrast-grid">
+            <div class="contrast-card old">
+              <b>Content-first</b>
+              <p>Post → wait → chase reach → guess what worked</p>
+            </div>
+            <div class="contrast-card">
+              <b>Market-first</b>
+              <p>Map → activate → prove → build → repeat</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="shell method-layout">
+        <div class="stack">
+          <span class="eyebrow">{site.mechanism}</span>
+          <h2>Start with the market. Build the brand from the evidence.</h2>
+          <div class="method-steps">
+            <div class="method-step">
+              <span class="step-index">01</span>
+              <div>
+                <h3>Map the immediate market</h3>
+                <p class="muted">We organise the current database, followers, customers, referrals, engagers and Top 100 Dream Prospects into one commercial view.</p>
+              </div>
+            </div>
+            <div class="method-step">
+              <span class="step-index">02</span>
+              <div>
+                <h3>Activate the warmest people</h3>
+                <p class="muted">We create relevant reasons to reconnect, engage and start conversations across the channels that already hold trust.</p>
+              </div>
+            </div>
+            <div class="method-step">
+              <span class="step-index">03</span>
+              <div>
+                <h3>Track what moves</h3>
+                <p class="muted">We connect replies, referrals, calls, donations, opportunities and revenue back to the message and source.</p>
+              </div>
+            </div>
+            <div class="method-step">
+              <span class="step-index">04</span>
+              <div>
+                <h3>Turn evidence into the brand</h3>
+                <p class="muted">The strongest stories, objections, proof and language become the founder’s positioning, content and ongoing campaign system.</p>
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <Button href="/method" variant="secondary" event="method_cta_click" meta="home-method">Explore the Full Method</Button>
+          </div>
+        </div>
+        <Mechanism />
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell stack">
+        <span class="eyebrow">Selected prior work · Red Dust</span>
+        <h2>An A$40k fundraising target became approximately A$175k raised.</h2>
+        <p class="lede muted">
+          The campaign combined a clear deadline with direct activation of the people already closest to the mission.
+        </p>
+        <p class="measure muted">
+          Thai personally worked through 500+ Instagram relationships, read the existing context and sent relevant messages on Double the Impact Day. Donor records made the response traceable. The result was more than four times the campaign target.
+        </p>
+        <p class="measure">
+          This is the NARA thesis in practice: the brand did not wait for the algorithm. It activated existing trust, learned from live response and gave people a specific reason to act now.
+        </p>
+        <div class="metric-grid">
+          {proof.map((item) => (
+            <div class="metric-card">
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
+        <div class="actions">
+          <Button href="/work/red-dust" variant="secondary" event="case_study_open" meta="red-dust">Read the Red Dust Case Study</Button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell stack">
+        <span class="eyebrow">What NARA builds</span>
+        <h2>The brand, the activation and the evidence loop.</h2>
+        <div class="service-grid">
+          {homepageServices.map((item) => (
+            <article class="service-block">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+        <div class="actions">
+          <Button href="/services" variant="secondary" event="secondary_cta_click" meta="home-services">View Services</Button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell stack">
+        <span class="eyebrow">Supporting proof</span>
+        <h2>Selected prior work led or supported by Thai</h2>
+        <CaseCard featured />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">Fit</span>
+          <h2>This is not outsourced personality.</h2>
+        </div>
+        <div class="stack">
+          <p class="lede">
+            NARA can build the system, direct the creative and run the activation. The founder still has to bring the judgement, stories, relationships and sales conversations.
+          </p>
+          <p>The method works best when:</p>
+          <ul class="list">
+            <li>the offer solves a real problem;</li>
+            <li>there is proof to work with;</li>
+            <li>the founder is willing to be visible;</li>
+            <li>qualified replies are handled quickly; and</li>
+            <li>revenue can be tracked back to source.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell about-grid">
+        <figure class="portrait-frame">
+          <img
+            class="portrait"
+            src="/images/nara-portrait.jpg"
+            width="960"
+            height="1200"
+            alt="Black and white portrait of Thai Biazzini, founder of NARA Studio, seated in a studio chair."
+          />
+        </figure>
+        <div class="stack">
+          <span class="eyebrow">About Thai</span>
+          <h2>Built by a marketer who has done the work inside the account.</h2>
+          <p class="muted">
+            Thai has spent six years across agency, campaign, content, account-growth and purpose-led marketing roles. NARA Studio packages that experience into one focused system: activate trust, prove response and build the founder brand from what the market shows you.
+          </p>
+          <div class="actions">
+            <Button href="/about" variant="secondary" event="secondary_cta_click" meta="home-about">About Thai</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      title="Before you buy more reach, activate the trust you already have."
+      body="We will map the immediate market, find the strongest commercial starting point and show you what to test first."
+      secondaryLabel="View Selected Work"
+      secondaryHref="/work"
+    />
+  </main>
+</BaseLayout>

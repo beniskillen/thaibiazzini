@@ -1,0 +1,55 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+
+const layers = [
+  {
+    title: 'Revenue',
+    detail: 'Calls · opportunities · donations · sales',
+    width: compact ? '42%' : '46%',
+    fill: 'color-mix(in srgb, var(--purple) 18%, var(--paper))',
+  },
+  {
+    title: 'Qualified demand',
+    detail: 'Fit · intent · timing · proof',
+    width: compact ? '58%' : '62%',
+    fill: 'color-mix(in srgb, var(--pink) 22%, var(--paper))',
+  },
+  {
+    title: 'Conversations',
+    detail: 'Relevant reconnection · direct activation · useful responses',
+    width: compact ? '76%' : '80%',
+    fill: 'color-mix(in srgb, var(--mauve) 55%, var(--paper))',
+  },
+  {
+    title: 'Immediate market',
+    detail: 'Database · customers · followers · engagers · referrals · prior buyers · Top 100 Dream Prospects',
+    width: '100%',
+    fill: 'color-mix(in srgb, var(--purple) 10%, var(--sand))',
+  },
+];
+---
+
+<div class:list={['mechanism', { compact }]} aria-label="The Warm Market Activation Method">
+  <div class="pyramid pyramid-desktop">
+    {layers.map((layer) => (
+      <div class="pyramid-layer" style={`--w:${layer.width}; --fill:${layer.fill}`}>
+        <strong>{layer.title}</strong>
+        <span>{layer.detail}</span>
+      </div>
+    ))}
+    <p class="pyramid-loop">Proof sharpens the brand</p>
+  </div>
+  <ol class="pyramid pyramid-mobile">
+    {[...layers].reverse().map((layer, index) => (
+      <li class="pyramid-layer" style={`--w:100%; --fill:${layer.fill}`}>
+        <strong>{index + 1}. {layer.title}</strong>
+        <span>{layer.detail}</span>
+      </li>
+    ))}
+    <li class="pyramid-loop">Proof sharpens the brand</li>
+  </ol>
+</div>

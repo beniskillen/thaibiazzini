@@ -1,0 +1,210 @@
+---
+import { applyStartOptions, audienceSources } from '../lib/application';
+
+const startFromQuery = Astro.url.searchParams.get('start') || '';
+---
+
+<form class="form" id="apply-form" novalidate data-apply-form>
+  <div class="form-error" data-form-error hidden role="alert"></div>
+
+  <label class="field">
+    <span>Name</span>
+    <input type="text" name="name" autocomplete="name" required />
+    <small class="field-error" data-error-for="name" hidden></small>
+  </label>
+
+  <label class="field">
+    <span>Company</span>
+    <input type="text" name="company" autocomplete="organization" required />
+    <small class="field-error" data-error-for="company" hidden></small>
+  </label>
+
+  <label class="field">
+    <span>Email</span>
+    <input type="email" name="email" autocomplete="email" required />
+    <small class="field-error" data-error-for="email" hidden></small>
+  </label>
+
+  <label class="field">
+    <span>Website or primary social profile</span>
+    <input type="text" name="profile" autocomplete="url" required />
+    <small class="field-error" data-error-for="profile" hidden></small>
+  </label>
+
+  <label class="field">
+    <span>What do you sell, to whom and at what typical value?</span>
+    <textarea name="offer" required></textarea>
+    <small class="field-error" data-error-for="offer" hidden></small>
+  </label>
+
+  <fieldset class="field">
+    <legend class="field-label">Which audience do you already have?</legend>
+    <div class="choice-grid">
+      {audienceSources.map((source) => (
+        <label class="choice">
+          <input type="checkbox" name="audience" value={source.value} />
+          <span>{source.label}</span>
+        </label>
+      ))}
+    </div>
+    <small class="field-error" data-error-for="audience" hidden></small>
+  </fieldset>
+
+  <label class="field">
+    <span>Roughly how many people or accounts are in that immediate market?</span>
+    <input type="text" name="marketSize" required />
+    <small class="field-error" data-error-for="marketSize" hidden></small>
+  </label>
+
+  <label class="field">
+    <span>What commercial result matters over the next 90 days?</span>
+    <textarea name="result90" required></textarea>
+    <small class="field-error" data-error-for="result90" hidden></small>
+  </label>
+
+  <label class="field">
+    <span>What proof can NARA use?</span>
+    <textarea name="proof" required></textarea>
+    <small class="field-error" data-error-for="proof" hidden></small>
+  </label>
+
+  <label class="field">
+    <span>Who handles qualified replies and sales calls?</span>
+    <input type="text" name="owner" required />
+    <small class="field-error" data-error-for="owner" hidden></small>
+  </label>
+
+  <label class="field">
+    <span>What has stopped this from working so far?</span>
+    <textarea name="blocker" required></textarea>
+    <small class="field-error" data-error-for="blocker" hidden></small>
+  </label>
+
+  <fieldset class="field">
+    <legend class="field-label">Preferred starting point</legend>
+    <div class="choice-grid">
+      {applyStartOptions.map((option) => (
+        <label class="choice">
+          <input
+            type="radio"
+            name="startingPoint"
+            value={option.value}
+            checked={startFromQuery === option.value}
+            required
+          />
+          <span>{option.label}</span>
+        </label>
+      ))}
+    </div>
+    <small class="field-error" data-error-for="startingPoint" hidden></small>
+  </fieldset>
+
+  <label class="choice">
+    <input type="checkbox" name="consent" value="yes" required />
+    <span>
+      I agree that NARA Studio can use these details to assess fit and reply about working together. We will not sell your information. See
+      <a href="/privacy">Privacy</a>.
+    </span>
+  </label>
+  <small class="field-error" data-error-for="consent" hidden></small>
+
+  <button class="btn btn-primary" type="submit">Submit Application</button>
+</form>
+
+<div class="success-panel" data-success hidden tabindex="-1">
+  <h2>Thanks. NARA will review the market, proof and current constraint.</h2>
+  <p>
+    If there is a clear fit, you will receive the recommended starting point and a link to book the next conversation.
+  </p>
+</div>
+
+<script>
+  import { track } from '../lib/analytics';
+  import { applicationToSafeEventProps, validateApplication, type ApplicationPayload } from '../lib/application';
+  import { submitApplication } from '../lib/submitApplication';
+
+  const form = document.querySelector<HTMLFormElement>('[data-apply-form]');
+  const success = document.querySelector<HTMLElement>('[data-success]');
+  const formError = document.querySelector<HTMLElement>('[data-form-error]');
+  let started = false;
+
+  function readPayload(target: HTMLFormElement): ApplicationPayload {
+    const data = new FormData(target);
+    return {
+      name: String(data.get('name') || ''),
+      company: String(data.get('company') || ''),
+      email: String(data.get('email') || ''),
+      profile: String(data.get('profile') || ''),
+      offer: String(data.get('offer') || ''),
+      audience: data.getAll('audience').map(String),
+      marketSize: String(data.get('marketSize') || ''),
+      result90: String(data.get('result90') || ''),
+      proof: String(data.get('proof') || ''),
+      owner: String(data.get('owner') || ''),
+      blocker: String(data.get('blocker') || ''),
+      startingPoint: String(data.get('startingPoint') || ''),
+      consent: data.get('consent') === 'yes',
+    };
+  }
+
+  function clearErrors() {
+    form?.querySelectorAll<HTMLElement>('[data-error-for]').forEach((node) => {
+      node.hidden = true;
+      node.textContent = '';
+    });
+    if (formError) {
+      formError.hidden = true;
+      formError.textContent = '';
+    }
+  }
+
+  function showErrors(errors: Record<string, string>) {
+    Object.entries(errors).forEach(([key, message]) => {
+      const node = form?.querySelector<HTMLElement>(`[data-error-for="${key}"]`);
+      if (!node) return;
+      node.hidden = false;
+      node.textContent = message;
+    });
+    if (formError) {
+      formError.hidden = false;
+      formError.textContent = 'Please correct the highlighted fields and submit again.';
+    }
+  }
+
+  form?.addEventListener('input', () => {
+    if (!started) {
+      started = true;
+      track('application_start');
+    }
+  });
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form) return;
+    clearErrors();
+    const payload = readPayload(form);
+    const errors = validateApplication(payload);
+    if (Object.keys(errors).length) {
+      showErrors(errors);
+      form.querySelector<HTMLElement>('[data-error-for]:not([hidden])')?.scrollIntoView({ block: 'center' });
+      return;
+    }
+
+    const submit = form.querySelector<HTMLButtonElement>('[type="submit"]');
+    if (submit) submit.disabled = true;
+
+    try {
+      await submitApplication(payload);
+      track('application_submit', applicationToSafeEventProps(payload));
+      form.hidden = true;
+      if (success) success.hidden = false;
+      success?.focus();
+    } catch {
+      if (formError) {
+        formError.hidden = false;
+        formError.textContent = 'The application could not be sent. Please try again.';
+      }
+      if (submit) submit.disabled = false;
+    }
+  });
+</script>

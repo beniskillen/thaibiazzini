@@ -1,0 +1,33 @@
+---
+import CaseCard from '../../components/CaseCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Revenue-Driven Personal Brand Case Studies | NARA Studio"
+  description="Selected prior work led or supported by Thai, showing how story, trust and direct activation create commercial movement."
+  path="/work"
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="shell stack">
+        <span class="eyebrow">Selected Work</span>
+        <h1>Proof before promises.</h1>
+        <p class="lede muted">
+          These cases show how a clear person, message and reason to act can turn trust into attention, community action and commercial results.
+        </p>
+        <p class="microcopy">Selected prior work led or supported by Thai. These are not presented as NARA Studio client engagements.</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="shell">
+        <CaseCard />
+      </div>
+    </section>
+    <CtaBand
+      title="Read a case, then map your own warm market."
+      body="If you have a real offer, usable proof and an underused network, the next conversation should start there."
+    />
+  </main>
+</BaseLayout>

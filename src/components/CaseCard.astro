@@ -1,0 +1,27 @@
+---
+import { caseStudies } from '../data/cases';
+
+interface Props {
+  featured?: boolean;
+}
+
+const { featured = false } = Astro.props;
+const studies = featured ? caseStudies.filter((item) => item.slug !== 'red-dust') : caseStudies;
+---
+
+<div class="card-grid">
+  {studies.map((study) => (
+    <a
+      class="work-card"
+      href={`/work/${study.slug}`}
+      data-track="case_study_open"
+      data-track-meta={study.slug}
+    >
+      <span class="eyebrow">{study.eyebrow}</span>
+      <h3>{study.cardTitle}</h3>
+      <p>{study.cardSummary}</p>
+      <p><strong>{study.proofLine}</strong></p>
+      <span class="microcopy">Read the case study</span>
+    </a>
+  ))}
+</div>

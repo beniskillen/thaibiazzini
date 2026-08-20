@@ -1,0 +1,62 @@
+---
+import Button from '../components/Button.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { services } from '../data/services';
+import { site } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Personal Brand Activation Services | NARA Studio"
+  description="Warm Market Map, revenue-driven brand activation, thought-leader content and campaign creative — scoped around the next commercial fact the market needs to prove."
+  path="/services"
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="shell stack">
+        <span class="eyebrow">Services</span>
+        <h1>Personal-brand work tied to commercial movement.</h1>
+        <p class="lede muted">
+          Start with the constraint. NARA will recommend the smallest scope that can prove the next commercial step.
+        </p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="shell stack">
+        {services.map((service) => (
+          <article class="service-block" id={service.slug}>
+            <span class="eyebrow">{service.number}</span>
+            <h2>{service.title}</h2>
+            <p><strong>For:</strong> {service.forWho}</p>
+            <p><strong>{service.actionLabel}:</strong></p>
+            <ul class="list">
+              {service.items.map((item) => <li>{item}</li>)}
+            </ul>
+            <p><strong>Result:</strong> {service.result}</p>
+            <div class="actions">
+              <Button href={`/apply?start=${service.startParam}`} event="secondary_cta_click" meta={service.slug}>
+                {service.cta}
+              </Button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell stack">
+        <h2>The starting point is not a package. It is the next thing the market needs to prove.</h2>
+        <div class="actions">
+          <Button href="/apply" event="primary_cta_click" meta="services">{site.primaryCta}</Button>
+          <Button href="/apply" variant="secondary" event="secondary_cta_click" meta="services-start">Choose Your Starting Point</Button>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      title="Map the constraint before you buy more content."
+      body="If you already have proof, an offer and an underused market, the first job is to see who should hear from you next."
+    />
+  </main>
+</BaseLayout>

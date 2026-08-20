@@ -1,0 +1,146 @@
+---
+import Button from '../components/Button.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Mechanism from '../components/Mechanism.astro';
+import { site } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="The Warm Market Activation Method | NARA Studio"
+  description="Start with the people already closest to buying. NARA maps the immediate market, activates trust, proves response and builds the founder brand from that evidence."
+  path="/method"
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="shell stack">
+        <span class="eyebrow">{site.mechanism}</span>
+        <h1>Start with the people already closest to buying.</h1>
+        <p class="lede muted">
+          Personal branding becomes commercially useful when it creates a measurable path from recognition to conversation to revenue.
+        </p>
+        <p class="measure">NARA Studio builds that path from the market backwards.</p>
+      </div>
+    </header>
+
+    <section class="section section-alt">
+      <div class="shell contrast-grid">
+        <article class="contrast-card old">
+          <b>The old sequence</b>
+          <h2>Post → wait → chase reach → guess what worked</h2>
+          <p>This creates a large volume of weak signals and very little commercial learning.</p>
+        </article>
+        <article class="contrast-card">
+          <b>The NARA sequence</b>
+          <h2>Map → activate → prove → build → repeat</h2>
+          <p>The immediate market gives faster feedback than a cold audience. It shows what people care about, which proof earns trust and what reason is strong enough to act on now.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell method-layout">
+        <Mechanism />
+        <div class="stack">
+          <span class="eyebrow">The system</span>
+          <h2>Immediate market to revenue, then back into the brand.</h2>
+          <p class="muted">
+            The base is widest because the existing market is the foundation: current database, customers, followers, engagers, referrals, prior buyers and Top 100 Dream Prospects.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">01 · Map</span>
+          <h2>Build the immediate serviceable market.</h2>
+        </div>
+        <div class="stack">
+          <p>
+            We bring the current database, customers, referrals, followers, engagers, inbox history and Top 100 Dream Prospects into one view.
+          </p>
+          <p class="muted">Each person or account is grouped by fit, relationship strength, timing, proof angle and next action.</p>
+          <p><strong>Output:</strong> a client-approved Warm Market Map and activation order.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">02 · Activate</span>
+          <h2>Give the right people a relevant reason to respond.</h2>
+        </div>
+        <div class="stack">
+          <p>
+            Activation can include database reactivation, warm reconnection, direct messages, thoughtful comments, targeted email, LinkedIn and account-based creative.
+          </p>
+          <p class="muted">The goal is not volume for its own sake. The goal is commercially useful response.</p>
+          <p><strong>Output:</strong> qualified conversations, referrals, intent signals and live objections.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">03 · Prove</span>
+          <h2>Connect attention to a commercial event.</h2>
+        </div>
+        <div class="stack">
+          <p>We track the path from source to reply, call, donation, opportunity and collected revenue.</p>
+          <p>The scoreboard focuses on:</p>
+          <ul class="list">
+            <li>market coverage;</li>
+            <li>response rate;</li>
+            <li>qualified conversations;</li>
+            <li>booked and held calls;</li>
+            <li>opportunities;</li>
+            <li>revenue; and</li>
+            <li>the conversion point blocking growth.</li>
+          </ul>
+          <p><strong>Output:</strong> evidence of what is working and where the process breaks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">04 · Build</span>
+          <h2>Turn market evidence into the public brand.</h2>
+        </div>
+        <div class="stack">
+          <p>
+            The founder’s positioning, proof, case studies, content pillars and campaign ideas are built from what the market has already responded to.
+          </p>
+          <p class="muted">
+            This creates a personal brand with a commercial job: make the next conversation easier to start and easier to close.
+          </p>
+          <p><strong>Output:</strong> a sharper point of view, stronger proof and content tied to live demand.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell stack">
+        <span class="eyebrow">The compounding loop</span>
+        <h2>Proof sharpens the brand.</h2>
+        <p class="lede muted">
+          Every new conversation improves the message. Every stronger message improves the content. Every better asset improves activation. Every commercial outcome creates more proof.
+        </p>
+        <div class="actions">
+          <Button href="/apply" event="primary_cta_click" meta="method">{site.primaryCta}</Button>
+          <Button href="/apply" variant="secondary" event="secondary_cta_click" meta="method-fit">See If It Fits</Button>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      title="Start with the trust you already have."
+      body="If the market is sitting in a CRM, inbox, follower list or referral graph, NARA can map the fastest commercial starting point."
+    />
+  </main>
+</BaseLayout>

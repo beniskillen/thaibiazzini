@@ -1,0 +1,99 @@
+---
+import { nav, site } from '../data/site';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const isCurrent = (href: string) =>
+  currentPath === href || (href !== '/' && currentPath.startsWith(href));
+---
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell nav-inner">
+    <a class="brand" href="/" aria-label="NARA Studio home">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span class="brand-word">NARA<br />Studio</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <div class="nav-cta">
+      <a
+        class="btn btn-primary"
+        href={site.primaryCtaHref}
+        data-track="primary_cta_click"
+        data-track-meta="nav"
+      >
+        {site.primaryCta}
+      </a>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-open>
+      <span></span>
+      <span class="visually-hidden">Open menu</span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" hidden data-mobile-nav>
+  <div class="mobile-nav-top">
+    <a class="brand" href="/" aria-label="NARA Studio home">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span class="brand-word">NARA<br />Studio</span>
+    </a>
+    <button class="menu-close" type="button" data-menu-close aria-label="Close menu"></button>
+  </div>
+  <nav aria-label="Mobile">
+    {nav.map((item) => (
+      <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+        {item.label}
+      </a>
+    ))}
+    <a
+      class="btn btn-primary"
+      href={site.primaryCtaHref}
+      data-track="primary_cta_click"
+      data-track-meta="mobile-nav"
+    >
+      {site.primaryCta}
+    </a>
+  </nav>
+</div>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .menu-close {
+    position: relative;
+  }
+
+  .menu-close::before,
+  .menu-close::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 1.5px;
+    background: var(--ink);
+  }
+
+  .menu-close::before {
+    transform: rotate(45deg);
+  }
+
+  .menu-close::after {
+    transform: rotate(-45deg);
+  }
+</style>

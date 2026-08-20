@@ -1,0 +1,49 @@
+---
+import { site } from '../data/site';
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  body?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  dark?: boolean;
+}
+
+const {
+  title,
+  body,
+  primaryLabel = site.primaryCta,
+  primaryHref = site.primaryCtaHref,
+  secondaryLabel,
+  secondaryHref,
+  dark = true,
+} = Astro.props;
+---
+
+<section class={dark ? 'cta-band' : 'section section-alt'}>
+  <div class="shell cta-grid">
+    <div class="stack">
+      <h2>{title}</h2>
+      {body && <p class={dark ? 'lede' : 'lede muted'}>{body}</p>}
+      <div class="actions">
+        <Button href={primaryHref} variant={dark ? 'on-dark' : 'primary'} event="primary_cta_click" meta="final-cta">
+          {primaryLabel}
+        </Button>
+        {secondaryLabel && secondaryHref && (
+          <Button
+            href={secondaryHref}
+            variant={dark ? 'ghost-dark' : 'secondary'}
+            event="secondary_cta_click"
+            meta="final-cta"
+          >
+            {secondaryLabel}
+          </Button>
+        )}
+      </div>
+    </div>
+    <div class="brand-mark" style="font-size: clamp(6rem, 14vw, 10rem); color: color-mix(in srgb, var(--mauve) 70%, transparent);" aria-hidden="true">N</div>
+  </div>
+</section>

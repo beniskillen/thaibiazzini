@@ -1,0 +1,96 @@
+---
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+import { absoluteUrl, site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  path,
+  ogImage = '/images/nara-portrait.jpg',
+  jsonLd,
+} = Astro.props;
+
+const canonical = absoluteUrl(path);
+const image = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage);
+const structured = jsonLd ?? {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: site.name,
+  description: site.description,
+  url: absoluteUrl('/'),
+  founder: {
+    '@type': 'Person',
+    name: site.founder,
+  },
+  areaServed: 'Worldwide',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="en_AU" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structured)} />
+  </head>
+  <body>
+    <Nav currentPath={path} />
+    <slot />
+    <Footer />
+    <script>
+      import { bindAnalytics } from '../lib/analytics';
+
+      const nav = document.querySelector<HTMLElement>('[data-mobile-nav]');
+      const open = document.querySelector<HTMLButtonElement>('[data-menu-open]');
+      const close = document.querySelector<HTMLButtonElement>('[data-menu-close]');
+
+      function setMenu(isOpen: boolean) {
+        if (!nav || !open) return;
+        document.body.classList.toggle('menu-open', isOpen);
+        nav.classList.toggle('is-open', isOpen);
+        nav.hidden = !isOpen;
+        open.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      open?.addEventListener('click', () => setMenu(true));
+      close?.addEventListener('click', () => setMenu(false));
+      nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMenu(false);
+      });
+
+      bindAnalytics();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'on-dark' | 'ghost-dark';
+  event?: string;
+  meta?: string;
+}
+
+const { href, variant = 'primary', event, meta } = Astro.props;
+---
+
+<a
+  class={`btn btn-${variant}`}
+  href={href}
+  data-track={event}
+  data-track-meta={meta}
+>
+  <slot />
+</a>

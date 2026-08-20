@@ -1,0 +1,24 @@
+---
+import Button from '../components/Button.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found | NARA Studio"
+  description="The page you requested is not in the NARA Studio sitemap."
+  path="/404"
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="shell stack">
+        <span class="eyebrow">404</span>
+        <h1>This page is not part of the current site.</h1>
+        <p class="lede muted">Head back to the method, selected work, or map your warm market.</p>
+        <div class="actions">
+          <Button href="/">Home</Button>
+          <Button href="/apply" variant="secondary">Map My Warm Market</Button>
+        </div>
+      </div>
+    </header>
+  </main>
+</BaseLayout>

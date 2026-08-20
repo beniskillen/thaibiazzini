@@ -1,0 +1,159 @@
+---
+import Button from '../../components/Button.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { caseStudies, getCaseStudy, publicMetrics } from '../../data/cases';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return caseStudies.map((study) => ({ params: { slug: study.slug } }));
+}
+
+const { slug } = Astro.params;
+const study = getCaseStudy(slug || '');
+
+if (!study) {
+  throw new Error(`Unknown case study: ${slug}`);
+}
+
+const metrics = publicMetrics(study);
+---
+
+<BaseLayout title={study.seo.title} description={study.seo.description} path={`/work/${study.slug}`}>
+  <main id="main">
+    <header class="page-hero">
+      <div class="shell stack">
+        <span class="eyebrow">{study.eyebrow}</span>
+        <h1>{study.title}</h1>
+        <p class="lede muted">{study.summary}</p>
+        <p class="microcopy">{study.attribution}</p>
+      </div>
+    </header>
+
+    {metrics.length > 0 && (
+      <section class="proof-strip">
+        <div class="shell proof-grid">
+          {metrics.map((metric) => (
+            <div class="proof-item">
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="section">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">Constraint</span>
+          <h2>{study.constraintTitle}</h2>
+        </div>
+        <div class="stack">
+          {study.constraint.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">Mechanism</span>
+          <h2>{study.mechanismTitle}</h2>
+        </div>
+        <div class="stack">
+          {study.mechanism.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+
+    {study.workCompleted && (
+      <section class="section">
+        <div class="shell stack">
+          <span class="eyebrow">What Thai did</span>
+          <h2>Work completed</h2>
+          <ol class="list numbered">
+            {study.workCompleted.map((item) => (
+              <li>
+                <strong>{item.title}</strong>
+                <p class="muted">{item.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    )}
+
+    {study.results.length > 0 && (
+      <section class="section section-alt">
+        <div class="shell stack">
+          <span class="eyebrow">Results</span>
+          <h2>What the activation produced</h2>
+          <ul class="list">
+            {study.results.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    {study.programmeProof && (
+      <section class="section">
+        <div class="shell stack">
+          <span class="eyebrow">Separate evidence band</span>
+          <h2>{study.programmeProof.title}</h2>
+          <p class="muted">{study.programmeProof.note}</p>
+          <ul class="list">
+            {study.programmeProof.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    {study.whyItWorked && (
+      <section class="section section-alt">
+        <div class="shell split">
+          <div class="kicker">
+            <span class="eyebrow">Why it worked</span>
+            <h2>{study.whyItWorkedTitle}</h2>
+          </div>
+          <div class="stack">
+            {study.whyItWorked.length > 2 ? (
+              <ul class="list">
+                {study.whyItWorked.map((item) => <li>{item}</li>)}
+              </ul>
+            ) : (
+              study.whyItWorked.map((item) => <p>{item}</p>)
+            )}
+            {study.naraLesson && <p><strong>NARA lesson:</strong> {study.naraLesson}</p>}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="section">
+      <div class="shell stack">
+        <span class="eyebrow">Proof gallery</span>
+        <h2>Campaign proof</h2>
+        <div class="placeholder-grid">
+          {study.proofGallery.map((asset) => (
+            <div class="placeholder-card">
+              <strong>{asset.title}</strong>
+              <span>{asset.caption}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell stack">
+        <span class="eyebrow">Services this maps to now</span>
+        <p>{study.servicesUsed.join(' · ')}</p>
+        <div class="actions">
+          <Button href="/apply" event="primary_cta_click" meta={study.slug}>{study.ctaLabel}</Button>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand title={study.ctaTitle} primaryLabel={study.ctaLabel} />
+  </main>
+</BaseLayout>

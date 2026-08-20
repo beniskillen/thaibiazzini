@@ -1,0 +1,22 @@
+---
+interface Props {
+  items: { value: string; label: string }[];
+  note?: string;
+}
+
+const { items, note } = Astro.props;
+---
+
+<div class="proof-strip">
+  <div class="shell">
+    <div class="proof-grid">
+      {items.map((item) => (
+        <div class="proof-item">
+          <strong>{item.value}</strong>
+          <span>{item.label}</span>
+        </div>
+      ))}
+    </div>
+    {note && <p class="microcopy" style="margin-top:1.1rem">{note}</p>}
+  </div>
+</div>

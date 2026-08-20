@@ -1,0 +1,27 @@
+---
+import ApplyForm from '../components/ApplyForm.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Map Your Warm Market | NARA Studio"
+  description="Apply to map the fastest route from current trust to commercial movement. NARA reviews your offer, immediate market, proof and current sales constraint."
+  path="/apply"
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="shell stack">
+        <span class="eyebrow">Work With NARA</span>
+        <h1>Map the fastest route from current trust to commercial movement.</h1>
+        <p class="lede muted">
+          This short application helps NARA understand the offer, immediate market, available proof and current sales constraint.
+        </p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="shell" style="max-width: 760px;">
+        <ApplyForm />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

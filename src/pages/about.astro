@@ -1,0 +1,95 @@
+---
+import Button from '../components/Button.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Thai Biazzini | NARA Studio"
+  description="Thai Biazzini built NARA Studio from six years inside agency, campaign, content and purpose-led marketing work. Start with the people already closest to the business."
+  path="/about"
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="shell about-grid">
+        <figure class="portrait-frame">
+          <img
+            class="portrait"
+            src="/images/nara-portrait.jpg"
+            width="960"
+            height="1200"
+            alt="Black and white portrait of Thai Biazzini, founder of NARA Studio, wearing a tailored suit."
+          />
+        </figure>
+        <div class="stack">
+          <span class="eyebrow">About Thai</span>
+          <h1>Built inside the work, not outside it.</h1>
+          <p class="lede muted">
+            Thai Biazzini has spent six years across agency, account growth, brand strategy, content, campaigns and purpose-led marketing.
+          </p>
+          <p>
+            Across real estate, hospitality, personal brands and social-impact work, the pattern stayed the same: the strongest results appeared when the right story reached people who already had a reason to care.
+          </p>
+          <p>NARA Studio was built around that lesson.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">Point of view</span>
+          <h2>Personal brand is not a vanity layer added after the sales system.</h2>
+        </div>
+        <div class="stack">
+          <p>
+            For founder-led businesses, it is the trust layer that helps the market understand the offer, believe the proof and feel comfortable starting a conversation.
+          </p>
+          <p>The work should still be measured commercially.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">What Thai brings</span>
+          <h2>Strategy, activation and proof in one system.</h2>
+        </div>
+        <ul class="list">
+          <li>brand and campaign direction;</li>
+          <li>direct audience activation;</li>
+          <li>founder interviewing and story extraction;</li>
+          <li>proof-led content systems;</li>
+          <li>cross-channel execution; and</li>
+          <li>English, Portuguese and Spanish communication.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell split">
+        <div class="kicker">
+          <span class="eyebrow">How NARA works</span>
+          <h2>The founder stays in the commercial conversation.</h2>
+        </div>
+        <div class="stack">
+          <p>
+            Thai owns strategy, voice, creative direction and the quality of the market interaction. Ben supports offer architecture, systems, CRM and commercial measurement where required.
+          </p>
+          <p class="muted">The client brings the expertise, proof, relationships and sales conversations.</p>
+          <div class="actions">
+            <Button href="/apply" event="primary_cta_click" meta="about">Work With Thai</Button>
+            <Button href="/apply" variant="secondary" event="secondary_cta_click" meta="about-primary">{site.primaryCta}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      title="If your work is stronger than your current market presence, start with the people already closest to it."
+      primaryLabel="Work With Thai"
+    />
+  </main>
+</BaseLayout>

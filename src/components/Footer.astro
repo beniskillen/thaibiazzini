@@ -1,0 +1,34 @@
+---
+import { footerNav, site } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div>
+      <div class="footer-title">{site.name}</div>
+      <p class="muted">
+        Revenue-driven personal branding for founders, consultants and experts. Start with the market, not the content.
+      </p>
+    </div>
+    <div>
+      <div class="footer-title">Navigate</div>
+      <div class="footer-links">
+        {footerNav.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </div>
+    </div>
+    <div>
+      <div class="footer-title">Next step</div>
+      <div class="footer-links">
+        <a href="/apply" data-track="primary_cta_click" data-track-meta="footer">{site.primaryCta}</a>
+        <a href="/method" data-track="method_cta_click" data-track-meta="footer">The Method</a>
+        <a href="/work">Selected work</a>
+      </div>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <span>© {site.year} {site.name}. All rights reserved.</span>
+    <span>Led by Thai Biazzini</span>
+  </div>
+</footer>
