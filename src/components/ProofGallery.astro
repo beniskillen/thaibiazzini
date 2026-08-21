@@ -1,0 +1,39 @@
+---
+import type { ProofAsset } from '../data/cases';
+import { withBase } from '../data/site';
+
+interface Props {
+  assets: ProofAsset[];
+  heading?: string;
+  intro?: string;
+}
+
+const { assets, heading = 'Campaign proof', intro } = Astro.props;
+---
+
+<section class="section" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b">
+  <div class="shell stack">
+    <span class="eyebrow">Proof gallery</span>
+    <h2>{heading}</h2>
+    {intro && <p class="lede muted">{intro}</p>}
+    <div class="placeholder-grid">
+      {assets.map((asset) =>
+        asset.kind === 'image' ? (
+          <figure class="proof-frame">
+            <img src={withBase(asset.src)} alt={asset.alt} width="960" height="720" />
+            <figcaption>
+              <strong>{asset.title}</strong>
+              <span>{asset.caption}</span>
+              {asset.credit && <em>{asset.credit}</em>}
+            </figcaption>
+          </figure>
+        ) : (
+          <div class="placeholder-card">
+            <strong>{asset.title}</strong>
+            <span>{asset.caption}</span>
+          </div>
+        ),
+      )}
+    </div>
+  </div>
+</section>

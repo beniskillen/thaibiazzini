@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { href, variant = 'primary', event, meta } = Astro.props;
+const showSpark = variant === 'primary' || variant === 'on-dark';
 ---
 
 <a
@@ -16,6 +17,9 @@ const { href, variant = 'primary', event, meta } = Astro.props;
   href={withBase(href)}
   data-track={event}
   data-track-meta={meta}
+  data-cursor-label="Open"
 >
-  <slot />
+  {showSpark && <span class="dot" aria-hidden="true">.</span>}
+  <span class="btn-label"><slot /></span>
+  {showSpark && <span class="spark" aria-hidden="true"></span>}
 </a>

@@ -1,6 +1,7 @@
 ---
 import Button from '../../components/Button.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import ProofGallery from '../../components/ProofGallery.astro';
 import { caseStudies, getCaseStudy, publicMetrics } from '../../data/cases';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -129,20 +130,15 @@ const metrics = publicMetrics(study);
       </section>
     )}
 
-    <section class="section">
-      <div class="shell stack">
-        <span class="eyebrow">Proof gallery</span>
-        <h2>Campaign proof</h2>
-        <div class="placeholder-grid">
-          {study.proofGallery.map((asset) => (
-            <div class="placeholder-card">
-              <strong>{asset.title}</strong>
-              <span>{asset.caption}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <ProofGallery
+      assets={study.proofGallery}
+      heading="Campaign proof"
+      intro={
+        study.slug === 'red-dust'
+          ? 'Public Red Dust assets sit beside reserved space for cleared campaign screenshots, donor records and outreach crops.'
+          : 'Public images from the work’s official pages and Instagram, with space left for additional cleared proof.'
+      }
+    />
 
     <section class="section section-alt">
       <div class="shell stack">

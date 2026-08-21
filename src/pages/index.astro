@@ -22,7 +22,28 @@ const proof = [
   path="/"
 >
   <main id="main">
-    <section class="hero">
+    <section class="hero" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b">
+      <div class="hero-media">
+        <video
+          data-hero-video
+          autoplay
+          muted
+          loop
+          playsinline
+          poster={withBase('/images/nara-portrait.jpg')}
+        >
+          <source src={withBase('/video/hero.mp4')} type="video/mp4" />
+        </video>
+      </div>
+      <button
+        class="video-toggle is-playing"
+        type="button"
+        data-video-toggle
+        data-cursor-label="Play"
+        aria-label="Pause background video"
+      >
+        <span></span>
+      </button>
       <div class="wide-shell hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">{site.category}</span>
@@ -30,12 +51,28 @@ const proof = [
           <p class="lede muted">
             NARA Studio activates the people already closest to your business, tracks what creates real commercial movement, then turns that evidence into a sharper message, stronger content and repeatable growth.
           </p>
+        </div>
+        <div class="hero-aside">
+          <p>{site.valuationNote}</p>
           <div class="actions">
             <Button href="/apply" event="primary_cta_click" meta="hero">{site.primaryCta}</Button>
             <Button href="/method" variant="secondary" event="method_cta_click" meta="hero">See the Method</Button>
           </div>
           <p class="microcopy">For founders, consultants and experts with real proof, a clear offer and an underused network.</p>
         </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        {Array.from({ length: 8 }).map(() => (
+          <span>Brand Equity Valuation · Warm Market Activation · Proof Before Promises ·</span>
+        ))}
+      </div>
+    </div>
+
+    <section class="section" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3">
+      <div class="wide-shell hero-follow">
         <Mechanism compact />
       </div>
     </section>
@@ -230,7 +267,7 @@ const proof = [
 
     <CtaBand
       title="Before you buy more reach, activate the trust you already have."
-      body="We will map the immediate market, find the strongest commercial starting point and show you what to test first."
+      body={site.valuationNote}
       secondaryLabel="View Selected Work"
       secondaryHref="/work"
     />

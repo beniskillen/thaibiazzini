@@ -1,6 +1,7 @@
 ---
 import CaseCard from '../../components/CaseCard.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import { site } from '../../data/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
@@ -10,7 +11,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   path="/work"
 >
   <main id="main">
-    <header class="page-hero">
+    <header class="page-hero" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b">
       <div class="shell stack">
         <span class="eyebrow">Selected Work</span>
         <h1>Proof before promises.</h1>
@@ -20,14 +21,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p class="microcopy">Selected prior work led or supported by Thai. These are not presented as NARA Studio client engagements.</p>
       </div>
     </header>
-    <section class="section">
+    <section class="section" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3">
       <div class="shell">
         <CaseCard />
       </div>
     </section>
     <CtaBand
-      title="Read a case, then map your own warm market."
-      body="If you have a real offer, usable proof and an underused network, the next conversation should start there."
+      title="Read a case, then value the equity in your own market."
+      body={site.valuationNote}
     />
   </main>
 </BaseLayout>

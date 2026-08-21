@@ -17,7 +17,16 @@ const studies = featured ? caseStudies.filter((item) => item.slug !== 'red-dust'
       href={withBase(`/work/${study.slug}`)}
       data-track="case_study_open"
       data-track-meta={study.slug}
+      data-cursor-label="Study"
     >
+      <figure class="work-card-media">
+        <img
+          src={withBase(study.coverImage.src)}
+          alt={study.coverImage.alt}
+          width="960"
+          height="720"
+        />
+      </figure>
       <span class="eyebrow">{study.eyebrow}</span>
       <h3>{study.cardTitle}</h3>
       <p>{study.cardSummary}</p>

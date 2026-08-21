@@ -4,8 +4,10 @@ export const site = {
   founder: 'Thai Biazzini',
   category: 'Revenue-Driven Personal Branding',
   mechanism: 'The Warm Market Activation Method',
-  primaryCta: 'Map My Warm Market',
+  primaryCta: 'Get My Brand Equity Valuation',
   primaryCtaHref: '/apply',
+  valuationNote:
+    'A Brand Equity Valuation maps the unused commercial value sitting in your warm market — customers, CRM, followers, referrals and Top 100 — then names the fastest route from existing trust to revenue.',
   description:
     'NARA Studio activates your warmest market, proves what creates conversations and revenue, then builds the founder brand around that evidence.',
   locale: 'en',

@@ -80,8 +80,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </p>
           <p class="muted">The client brings the expertise, proof, relationships and sales conversations.</p>
           <div class="actions">
-            <Button href="/apply" event="primary_cta_click" meta="about">Work With Thai</Button>
-            <Button href="/apply" variant="secondary" event="secondary_cta_click" meta="about-primary">{site.primaryCta}</Button>
+            <Button href="/apply" event="primary_cta_click" meta="about">{site.primaryCta}</Button>
+            <Button href="/apply" variant="secondary" event="secondary_cta_click" meta="about-primary">Work With Thai</Button>
           </div>
         </div>
       </div>
@@ -89,7 +89,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <CtaBand
       title="If your work is stronger than your current market presence, start with the people already closest to it."
-      primaryLabel="Work With Thai"
     />
   </main>
 </BaseLayout>

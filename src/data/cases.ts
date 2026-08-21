@@ -7,11 +7,22 @@ export interface CaseMetric {
   visibility: ClaimVisibility;
 }
 
-export interface ProofAsset {
+export interface ProofImage {
+  kind: 'image';
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+  credit?: string;
+}
+
+export interface ProofPlaceholder {
   kind: 'placeholder';
   title: string;
   caption: string;
 }
+
+export type ProofAsset = ProofImage | ProofPlaceholder;
 
 export interface CaseStudy {
   slug: 'red-dust' | 'sean-bell' | 'shiv-nair';
@@ -21,6 +32,7 @@ export interface CaseStudy {
   summary: string;
   cardSummary: string;
   proofLine: string;
+  coverImage: ProofImage;
   attribution: string;
   metricStrip: CaseMetric[];
   constraintTitle: string;
@@ -54,6 +66,14 @@ export const caseStudies: CaseStudy[] = [
       'By activating the people already closest to the cause, Thai helped Red Dust raise approximately A$175k against a A$40k stated campaign target — more than four times the campaign target.',
     cardSummary: 'Warm-donor activation turned existing trust into a time-bound fundraising result.',
     proofLine: '4.4× target · 500+ personalised DMs',
+    coverImage: {
+      kind: 'image',
+      src: '/images/work/red-dust-community.jpg',
+      alt: 'Red Dust Role Models community program photograph from the organisation’s public site.',
+      title: 'Community presence',
+      caption: 'Public Red Dust photography used to show the organisation’s existing trust base.',
+      credit: 'Red Dust Role Models',
+    },
     attribution: 'Selected prior work led by Thai in her Red Dust role.',
     metricStrip: [
       { value: 'A$175k', label: 'approximate funds raised', claimId: 'red-dust-raised', visibility: 'public' },
@@ -111,25 +131,57 @@ export const caseStudies: CaseStudy[] = [
     ],
     proofGallery: [
       {
+        kind: 'image',
+        src: '/images/work/red-dust-community.jpg',
+        alt: 'Red Dust Role Models community photograph published on reddust.org.au.',
+        title: 'Existing community trust',
+        caption: 'The campaign started with people already close to the mission, not a cold audience.',
+        credit: 'Red Dust Role Models',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/red-dust-fundraising.png',
+        alt: 'Red Dust community fundraising graphic from the official website.',
+        title: 'A public reason to give',
+        caption: 'Fundraising was already a recognised part of the organisation’s public presence.',
+        credit: 'Red Dust Role Models',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/red-dust-map.png',
+        alt: 'Red Dust 2023 community map showing where programs run across Australia.',
+        title: 'A known footprint',
+        caption: 'The activation used an organisation with an established geographic and community presence.',
+        credit: 'Red Dust Role Models',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/red-dust-donate.jpg',
+        alt: 'Red Dust donate call-to-action image from the official website.',
+        title: 'A clear next action',
+        caption: 'The public site already asked supporters to act. The campaign made that action immediate.',
+        credit: 'Red Dust Role Models',
+      },
+      {
         kind: 'placeholder',
-        title: 'Campaign total',
-        caption: 'Replace with the cleared Red Dust campaign-page screenshot showing the final total.',
+        title: 'Campaign total screenshot',
+        caption: 'Space reserved for the cleared Red Dust campaign-page screenshot showing the final total.',
       },
       {
         kind: 'placeholder',
         title: 'Donation record',
-        caption: 'Replace with a redacted donation-total crop. Do not publish private donor data.',
+        caption: 'Space reserved for a redacted donation-total crop. Do not publish private donor data.',
       },
       {
         kind: 'placeholder',
         title: 'Direct messages',
-        caption: 'Replace with a redacted Instagram outreach screenshot once permission is confirmed.',
+        caption: 'Space reserved for a redacted Instagram outreach screenshot once permission is confirmed.',
       },
     ],
     claimStatus: 'approved-working',
     servicesUsed: ['Warm Market Map', 'Revenue-Driven Brand Activation', 'Campaign Creative', 'CRM attribution'],
     ctaTitle: 'Before you buy more reach, activate the trust you already have.',
-    ctaLabel: 'Build My Activation Plan',
+    ctaLabel: 'Get My Brand Equity Valuation',
     seo: {
       title: 'A$40k Target to Approximately A$175k Raised | NARA Studio',
       description:
@@ -146,6 +198,14 @@ export const caseStudies: CaseStudy[] = [
     cardSummary:
       'Story, consistency and direct community activation turned endurance into a public movement.',
     proofLine: 'Daily direct outreach · mission-led storytelling · community activation',
+    coverImage: {
+      kind: 'image',
+      src: '/images/work/sean-bell-portrait.jpg',
+      alt: 'Sean Bell photographed during his Run Around Australia mission, published by Make-A-Wish Australia.',
+      title: 'A face the market could follow',
+      caption: 'The public could recognise the person at the centre of the mission.',
+      credit: 'Make-A-Wish Australia',
+    },
     attribution: 'Selected prior work led or supported by Thai.',
     metricStrip: [],
     constraintTitle: 'The constraint',
@@ -171,15 +231,55 @@ export const caseStudies: CaseStudy[] = [
       'A founder brand becomes memorable when the market can repeat the story in one sentence and knows what action to take next.',
     proofGallery: [
       {
+        kind: 'image',
+        src: '/images/work/sean-bell-portrait.jpg',
+        alt: 'Sean Bell in endurance kit during the Run Around Australia project.',
+        title: 'The person at the centre',
+        caption: 'The brand repeated one recognisable face and one mission.',
+        credit: 'Make-A-Wish Australia',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/sean-bell-run.jpg',
+        alt: 'Sean Bell running on the road during the public endurance mission.',
+        title: 'Visible sacrifice',
+        caption: 'Progress was public. The market could see the work as it happened.',
+        credit: 'Make-A-Wish Australia',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/sean-bell-mcg.jpg',
+        alt: 'Sean Bell after closing the Run Around Australia loop, published by Make-A-Wish Australia.',
+        title: 'A finish the public could share',
+        caption: 'The close of the loop gave the community a moment to gather around.',
+        credit: 'Make-A-Wish Australia',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/sean-bell-ig-1.jpg',
+        alt: 'Public Instagram still from @seanbellruns showing Sean Bell’s ongoing mission presence.',
+        title: 'Daily presence',
+        caption: 'The Instagram graph was used as a relationship surface, not just a broadcast channel.',
+        credit: '@seanbellruns',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/sean-bell-ig-3.jpg',
+        alt: 'Public Instagram still from @seanbellruns showing endurance-brand storytelling.',
+        title: 'Repeatable visual cues',
+        caption: 'The same person, the same mission, shown often enough to become memorable.',
+        credit: '@seanbellruns',
+      },
+      {
         kind: 'placeholder',
-        title: 'Movement proof',
-        caption: 'Replace with an approved Sean Bell movement or event image once usage rights are confirmed.',
+        title: 'Direct activation crop',
+        caption: 'Space reserved for a cleared, redacted example of the daily Instagram outreach layer.',
       },
     ],
     claimStatus: 'mechanism-led',
     servicesUsed: ['Revenue-Driven Brand Activation', 'Thought Leader Content', 'Campaign Creative'],
     ctaTitle: 'Give the people closest to your work a reason to act.',
-    ctaLabel: 'Build My Activation Plan',
+    ctaLabel: 'Get My Brand Equity Valuation',
     seo: {
       title: 'Sean Bell — A Mission People Could Act On | NARA Studio',
       description:
@@ -196,6 +296,14 @@ export const caseStudies: CaseStudy[] = [
     cardSummary:
       'Repeated expertise and recognisable proof built trust before the property conversation.',
     proofLine: 'Local category authority · proof-led content',
+    coverImage: {
+      kind: 'image',
+      src: '/images/work/shiv-nair-portrait.jpg',
+      alt: 'Official Ray White portrait of Shiv Nair, founding partner of Ray White TNG.',
+      title: 'The expert stays visible',
+      caption: 'The person is the repeated source of local confidence, not only the listing.',
+      credit: 'Ray White United Group',
+    },
     attribution: 'Selected prior work led or supported by Thai.',
     metricStrip: [],
     constraintTitle: 'The constraint',
@@ -217,15 +325,55 @@ export const caseStudies: CaseStudy[] = [
       'A personal brand should shorten the distance between “I have seen this person” and “I trust this person with the decision.”',
     proofGallery: [
       {
+        kind: 'image',
+        src: '/images/work/shiv-nair-portrait.jpg',
+        alt: 'Official Ray White United Group portrait of Shiv Nair.',
+        title: 'A recognisable local expert',
+        caption: 'Buyers and sellers can attach the category to a specific person.',
+        credit: 'Ray White United Group',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/shiv-nair-listing.jpg',
+        alt: 'Public listing photograph associated with Shiv Nair’s Ray White TNG market presence.',
+        title: 'Proof beside the person',
+        caption: 'Listings stay visible, but they sit next to a repeated expert brand.',
+        credit: 'view.com.au listing photography',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/shiv-nair-ig-1.jpg',
+        alt: 'Public Instagram still from @shivnairrealestate showing Shiv Nair’s market presence.',
+        title: 'Face-to-camera presence',
+        caption: 'Repeated personal visibility makes the agent harder to interchange.',
+        credit: '@shivnairrealestate',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/shiv-nair-ig-2.jpg',
+        alt: 'Public Instagram still from @shivnairrealestate showing proof-led local content.',
+        title: 'Local proof in public',
+        caption: 'Market commentary and visible results reduce perceived risk before contact.',
+        credit: '@shivnairrealestate',
+      },
+      {
+        kind: 'image',
+        src: '/images/work/shiv-nair-ig-3.jpg',
+        alt: 'Public Instagram still from @shivnairrealestate showing Ray White TNG brand activity.',
+        title: 'Consistent category association',
+        caption: 'The same person, market and proof appear often enough to build recognition.',
+        credit: '@shivnairrealestate',
+      },
+      {
         kind: 'placeholder',
-        title: 'Market presence',
-        caption: 'Replace with an approved face-to-camera or market-content image once usage rights are confirmed.',
+        title: 'Market-content still',
+        caption: 'Space reserved for an additional cleared face-to-camera or sold-board example.',
       },
     ],
     claimStatus: 'mechanism-led',
     servicesUsed: ['Thought Leader Content', 'Revenue-Driven Brand Activation'],
     ctaTitle: 'Make the next commercial conversation easier to start.',
-    ctaLabel: 'Build My Activation Plan',
+    ctaLabel: 'Get My Brand Equity Valuation',
     seo: {
       title: 'Shiv Nair — Local Authority Before the Listing | NARA Studio',
       description:

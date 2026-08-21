@@ -1,19 +1,21 @@
 ---
 import ApplyForm from '../components/ApplyForm.astro';
+import { site } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Map Your Warm Market | NARA Studio"
-  description="Apply to map the fastest route from current trust to commercial movement. NARA reviews your offer, immediate market, proof and current sales constraint."
+  title="Get a Brand Equity Valuation | NARA Studio"
+  description="Apply for a Brand Equity Valuation. NARA maps unused commercial value in your warm market and shows the fastest route from current trust to revenue."
   path="/apply"
 >
   <main id="main">
-    <header class="page-hero">
+    <header class="page-hero" data-cursor-fill="#f2efa3" data-cursor-text="#1d1d1b">
       <div class="shell stack">
         <span class="eyebrow">Work With NARA</span>
-        <h1>Map the fastest route from current trust to commercial movement.</h1>
-        <p class="lede muted">
+        <h1>Get a Brand Equity Valuation.</h1>
+        <p class="lede muted">{site.valuationNote}</p>
+        <p class="measure">
           This short application helps NARA understand the offer, immediate market, available proof and current sales constraint.
         </p>
       </div>

@@ -22,6 +22,7 @@ const {
 
 const canonical = absoluteUrl(path);
 const image = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage);
+const isHome = path === '/';
 const structured = jsonLd ?? {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
@@ -64,31 +65,18 @@ const structured = jsonLd ?? {
     />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(structured)} />
   </head>
-  <body>
+  <body class:list={[{ home: isHome }]}>
+    <div class="cursor" data-cursor aria-hidden="true">
+      <div class="cursor-core"></div>
+      <div class="cursor-copy" data-cursor-label>Nara Studio</div>
+    </div>
+    <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
     <Nav currentPath={path} />
     <slot />
     <Footer />
     <script>
       import { bindAnalytics } from '../lib/analytics';
-
-      const nav = document.querySelector<HTMLElement>('[data-mobile-nav]');
-      const open = document.querySelector<HTMLButtonElement>('[data-menu-open]');
-      const close = document.querySelector<HTMLButtonElement>('[data-menu-close]');
-
-      function setMenu(isOpen: boolean) {
-        if (!nav || !open) return;
-        document.body.classList.toggle('menu-open', isOpen);
-        nav.classList.toggle('is-open', isOpen);
-        nav.hidden = !isOpen;
-        open.setAttribute('aria-expanded', String(isOpen));
-      }
-
-      open?.addEventListener('click', () => setMenu(true));
-      close?.addEventListener('click', () => setMenu(false));
-      nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-      window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') setMenu(false);
-      });
+      import '../scripts/site-chrome';
 
       bindAnalytics();
     </script>
