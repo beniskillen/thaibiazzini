@@ -4,6 +4,7 @@ import CaseCard from '../components/CaseCard.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Mechanism from '../components/Mechanism.astro';
 import ProofStrip from '../components/ProofStrip.astro';
+import TrustBar from '../components/TrustBar.astro';
 import { homepageServices } from '../data/services';
 import { site, withBase } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -63,13 +64,7 @@ const proof = [
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        {Array.from({ length: 8 }).map(() => (
-          <span>Brand Equity Valuation · Warm Market Activation · Proof Before Promises ·</span>
-        ))}
-      </div>
-    </div>
+    <TrustBar />
 
     <section class="section" data-cursor-fill="#1d1d1b" data-cursor-text="#f2efa3">
       <div class="wide-shell hero-follow">

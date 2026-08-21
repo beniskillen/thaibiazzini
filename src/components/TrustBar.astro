@@ -1,0 +1,27 @@
+---
+import { trustMarks } from '../data/trust';
+import { withBase } from '../data/site';
+
+const loop = [...trustMarks, ...trustMarks];
+const names = trustMarks.map((mark) => mark.name).join(', ');
+---
+
+<section
+  class="trust-bar"
+  aria-label={`We have worked with ${names}`}
+  data-cursor-fill="#1d1d1b"
+  data-cursor-text="#f2efa3"
+>
+  <div class="trust-label">
+    <span>We have worked with</span>
+  </div>
+  <div class="trust-viewport">
+    <ul class="trust-track" aria-hidden="true">
+      {loop.map((mark) => (
+        <li class="trust-item">
+          <img src={withBase(mark.src)} alt="" />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
