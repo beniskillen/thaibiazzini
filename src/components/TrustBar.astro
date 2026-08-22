@@ -18,7 +18,7 @@ const names = trustMarks.map((mark) => mark.name).join(', ');
   <div class="trust-viewport">
     <ul class="trust-track" aria-hidden="true">
       {loop.map((mark) => (
-        <li class="trust-item">
+        <li class={`trust-item${mark.fit === 'badge' ? ' is-badge' : ''}`}>
           <img src={withBase(mark.src)} alt="" />
         </li>
       ))}

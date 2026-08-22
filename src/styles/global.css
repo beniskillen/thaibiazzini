@@ -588,12 +588,16 @@ body:not(.home) .site-header {
 
 .trust-item img {
   display: block;
-  height: 34px;
+  height: 32px;
   width: auto;
-  max-width: 210px;
+  max-width: 200px;
   object-fit: contain;
-  filter: grayscale(1) brightness(0);
-  opacity: 0.78;
+  opacity: 0.82;
+}
+
+.trust-item.is-badge img {
+  height: 52px;
+  max-width: 72px;
 }
 
 @media (max-width: 900px) {
@@ -613,7 +617,12 @@ body:not(.home) .site-header {
   }
 
   .trust-item img {
-    height: 28px;
+    height: 26px;
+  }
+
+  .trust-item.is-badge img {
+    height: 42px;
+    max-width: 58px;
   }
 }
 
@@ -677,12 +686,23 @@ body:not(.home) .site-header {
   gap: 1.25rem;
 }
 
+.proof-item strong,
+.metric-card strong,
+.step-index,
+.pyramid-loop,
+.numbered li::before {
+  color: var(--yellow);
+  background: var(--ink);
+  box-shadow: 0.12em 0.12em 0 color-mix(in srgb, var(--ink) 28%, transparent);
+}
+
 .proof-item strong {
-  display: block;
+  display: inline-block;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   letter-spacing: -0.04em;
   line-height: 1;
-  color: var(--yellow);
+  padding: 0.12em 0.28em 0.16em;
+  border-radius: 4px;
 }
 
 .proof-item span {
@@ -744,8 +764,10 @@ body:not(.home) .site-header {
 }
 
 .step-index {
-  color: var(--yellow);
+  display: inline-block;
   font-weight: 600;
+  padding: 0.08em 0.34em 0.12em;
+  border-radius: 4px;
 }
 
 .pyramid {
@@ -777,10 +799,12 @@ body:not(.home) .site-header {
 }
 
 .pyramid-loop {
+  display: inline-block;
   margin-top: 0.8rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--yellow);
+  padding: 0.18em 0.5em 0.22em;
+  border-radius: 4px;
 }
 
 .pyramid-mobile {
@@ -807,10 +831,12 @@ body:not(.home) .site-header {
 }
 
 .metric-card strong {
-  display: block;
-  color: var(--yellow);
+  display: inline-block;
   font-size: 2rem;
   letter-spacing: -0.04em;
+  line-height: 1;
+  padding: 0.12em 0.28em 0.16em;
+  border-radius: 4px;
 }
 
 .work-card,
@@ -900,12 +926,12 @@ body:not(.home) .site-header {
   content: counter(nara);
   width: auto;
   height: auto;
-  border-radius: 0;
-  background: transparent;
-  color: var(--yellow);
+  border-radius: 4px;
+  background: var(--ink);
   font-size: 0.78rem;
   font-weight: 700;
-  top: 0.15em;
+  top: 0.05em;
+  padding: 0.05em 0.28em 0.08em;
 }
 
 .about-grid {
