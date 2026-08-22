@@ -19,7 +19,6 @@ const showSpark = variant === 'primary' || variant === 'on-dark';
   data-track-meta={meta}
   data-cursor-label="Open"
 >
-  {showSpark && <span class="dot" aria-hidden="true">.</span>}
   <span class="btn-label"><slot /></span>
   {showSpark && <span class="spark" aria-hidden="true"></span>}
 </a>
