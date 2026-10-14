@@ -72,12 +72,12 @@ export const Hero = () => {
             className="font-display text-[13vw] sm:text-7xl lg:text-8xl xl:text-[7.5rem] mt-10 max-w-5xl"
             lines={[
               <>Personal branding</>,
-              <>that makes</>,
-              <><span className="font-serif-i chrome-text font-normal normal-case tracking-normal">money.</span></>,
+              <>that works</>,
+              <><span className="font-serif-i chrome-text font-normal normal-case tracking-normal">for you.</span></>,
             ]}
           />
           <motion.p {...fade(0.9)} className="mt-10 text-white/60 text-base md:text-lg max-w-xl leading-relaxed" data-testid="hero-subcopy">
-            NARA Studio builds a founder's public brand from the people already close to a purchase. Four steps. The writing comes after you can see what they reply to, book, or buy.
+            NARA Studio is a digital marketing agency led by creative strategists to create the perfect intersection of performance and creative, by harnessing the equity sitting within your brand.
           </motion.p>
           <motion.div {...fade(1.05)} className="mt-12 flex flex-wrap gap-4">
             <a href={BOOKING_URL} target="_blank" rel="noreferrer" data-testid="hero-cta-primary" className="btn btn-chrome">

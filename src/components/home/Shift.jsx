@@ -6,7 +6,7 @@ import { viewport } from "@/lib/motion";
 
 const COLS = [
   { k: "Posting first", steps: ["Post", "Wait", "Chase reach", "Guess"], dim: true },
-  { k: "This work", steps: ["List", "Contact", "Score", "Publish"] },
+  { k: "This work", steps: ["Evaluate", "Activate", "Iterate", "Vision"] },
 ];
 
 export const Shift = () => (
@@ -18,11 +18,11 @@ export const Shift = () => (
           as="h2"
           inView
           className="font-display text-4xl sm:text-5xl lg:text-7xl mt-8"
-          lines={[<>The brand follows</>, <>the conversations</>, <>that make <span className="font-serif-i font-normal tracking-normal">money.</span></>]}
+          lines={[<>The brand is published</>, <>from what already</>, <><span className="font-serif-i font-normal tracking-normal">works.</span></>]}
         />
         <Reveal delay={3} className="mt-10 max-w-xl text-ink-2 text-base md:text-lg leading-relaxed space-y-5">
           <p>You already have people who bought, followed, referred you, or asked a question.</p>
-          <p>We contact them in order, and write down what gets a reply and what gets a sale. Posts, the offer line, and the next campaign are taken from that record.</p>
+          <p>We contact them in order, and write down what gets a reply and what gets a sale. Posts, the offer line, and the next campaign are taken from that record. That is revenue-generating personal branding in practice.</p>
         </Reveal>
       </div>
 

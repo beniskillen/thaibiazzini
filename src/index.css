@@ -208,29 +208,31 @@ body {
 [data-accent="red"] .btn-ink:hover { background-position: 100% 50%; }
 
 .accent-toggle {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 14px;
+  width: 48px;
+  height: 28px;
+  padding: 0;
   border-radius: 999px;
-  border: 1px solid rgba(245, 245, 245, 0.28);
-  background: transparent;
-  color: #f5f5f5;
-  font-family: "Archivo", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  border: 1px solid rgba(245, 245, 245, 0.16);
+  background: #1a1a1a;
   cursor: pointer;
+  flex-shrink: 0;
 }
-.accent-toggle:hover { border-color: #f5f5f5; }
-.accent-swatch {
-  width: 12px;
-  height: 12px;
+.accent-toggle:hover { border-color: rgba(245, 245, 245, 0.4); }
+.accent-knob {
+  width: 20px;
+  height: 20px;
+  margin-left: 3px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #ffffff 0%, #d5dbe3 42%, #8e97a6 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.accent-toggle[aria-checked="true"] .accent-knob {
+  transform: translateX(22px);
   background: #cf1c18;
-}
-[data-accent="red"] .accent-swatch {
-  background-image: linear-gradient(135deg, #ffffff 0%, #8d95a4 100%);
 }
 
 .btn-ghost {

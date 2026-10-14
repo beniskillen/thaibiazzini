@@ -34,14 +34,14 @@ export const AccentToggle = () => {
   return (
     <button
       type="button"
+      role="switch"
       onClick={toggle}
-      aria-pressed={red}
-      aria-label={red ? "Use the silver accent" : "Use the red accent"}
+      aria-checked={red}
+      aria-label={red ? "Red accent on. Switch to silver." : "Silver accent on. Switch to red."}
       data-testid="accent-toggle"
       className="accent-toggle"
     >
-      <span className="accent-swatch" aria-hidden="true" />
-      <span className="hidden sm:inline">{red ? "Silver" : "Red"}</span>
+      <span className="accent-knob" aria-hidden="true" />
     </button>
   );
 };

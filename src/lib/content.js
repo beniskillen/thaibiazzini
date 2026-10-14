@@ -28,24 +28,24 @@ export const FUNNEL = [
 
 export const METHOD_STEPS = [
   {
-    step: "01", tag: "List", name: "List who is close to a sale",
-    desc: "Customers, past buyers, followers, referrals, and the accounts you want. Sorted by fit, and by who already knows you.",
-    output: "A list, in the order to contact them.",
+    step: "01", tag: "Evaluate", name: "Evaluate the equity in the brand",
+    desc: "Look at the assets the brand already owns, and the potential sitting in them.",
+    output: "A clear read of what the brand can put to work.",
   },
   {
-    step: "02", tag: "Contact", name: "Contact them directly",
-    desc: "Messages, calls, and posts aimed at those people. The aim is a reply you can follow up.",
-    output: "Conversations, referrals, and the objections people raise.",
+    step: "02", tag: "Activate", name: "Activate those assets",
+    desc: "Put that equity to work with a proven method, aimed at the people closest to the business.",
+    output: "The assets in market, with a reason to respond.",
   },
   {
-    step: "03", tag: "Score", name: "See what turns into money",
-    desc: "Replies, calls, and sales are written back to the message that prompted them.",
-    output: "A short record of what got a response, and what did not.",
+    step: "03", tag: "Iterate", name: "Iterate on what responds",
+    desc: "Keep what leads to a reply, a call, or a sale. Change what does not.",
+    output: "A tighter version of what is already working.",
   },
   {
-    step: "04", tag: "Publish", name: "Build the brand from that",
-    desc: "The lines, stories, and proof that held up in those conversations become the public brand.",
-    output: "Positioning and content tied to demand you have already seen.",
+    step: "04", tag: "Vision", name: "Hold the creative vision",
+    desc: "Scale revenue in line with the creative vision, so the brand looks right and brings in work.",
+    output: "Growth that still looks like the brand you want.",
   },
 ];
 

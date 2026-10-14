@@ -10,8 +10,8 @@ export default function ServicesPage() {
     <main data-testid="services-page">
       <PageHero
         eyebrow="The offer"
-        lines={[<>Personal branding</>, <>that makes</>, <><span className="font-serif-i font-normal tracking-normal chrome-text">money.</span></>]}
-        lead="For founders whose name is part of the sale. The steps come first. The public brand is written from what those people reply to, book, or buy."
+        lines={[<>Personal branding</>, <>that works</>, <><span className="font-serif-i font-normal tracking-normal chrome-text">for you.</span></>]}
+        lead="A strong personal brand is about a lot more than looking pretty. NARA Studio is the intersection of both: the look, and revenue-generating personal branding. The steps below are the process."
       />
 
       <section className="theme-light px-6 lg:px-14 py-20 md:py-28 border-b border-ink/15" data-testid="offer-steps">

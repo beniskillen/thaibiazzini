@@ -9,9 +9,13 @@ export const Method = () => (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
       <div className="lg:col-span-4">
         <div className="lg:sticky lg:top-32">
-          <Reveal><Eyebrow>The steps</Eyebrow></Reveal>
+          <Reveal><Eyebrow>The mechanism</Eyebrow></Reveal>
           <Reveal as="h2" delay={1} className="font-display text-4xl sm:text-5xl lg:text-6xl mt-8">
-            List. Contact. Score. Then <span className="font-serif-i font-normal tracking-normal">publish.</span>
+            Revenue-generating <span className="font-serif-i font-normal tracking-normal">personal branding.</span>
+          </Reveal>
+          <Reveal delay={2} className="mt-8 text-ink-2 text-base leading-relaxed max-w-md space-y-4">
+            <p>A strong personal brand is about a lot more than looking pretty. It has to look right, and it has to bring in work. NARA Studio is the intersection of the two.</p>
+            <p>We cut through the noise to execute our brand equity activation system. Through this process, we evaluate the potential sitting within all the assets your brand owns, then activate them with a proven method to scale revenue in line with your ideal creative vision.</p>
           </Reveal>
           <Reveal delay={2} className="mt-10">
             <Link to="/method" data-testid="method-explore-link" className="btn btn-ink">

@@ -9,9 +9,9 @@ export default function MethodPage() {
   return (
     <main data-testid="method-page">
       <PageHero
-        eyebrow="The steps"
-        lines={[<>List. Contact.</>, <>Score. <span className="font-serif-i font-normal tracking-normal chrome-text">Publish.</span></>]}
-        lead="Personal branding that makes money. List the people close to a sale, contact them, keep what turns into revenue, and publish from that."
+        eyebrow="The mechanism"
+        lines={[<>Revenue-generating</>, <>personal <span className="font-serif-i font-normal tracking-normal chrome-text">branding.</span></>]}
+        lead="A strong personal brand is about a lot more than looking pretty. NARA Studio is the intersection of both: a brand that looks right, and revenue-generating personal branding that brings in work. The process is evaluate, activate, iterate, and vision."
         aside={
           <div className="grid grid-cols-1 gap-px bg-white/10 border border-white/10">
             <div className="bg-[#0F1013] p-6">
@@ -20,7 +20,7 @@ export default function MethodPage() {
             </div>
             <div className="bg-white text-ink p-6">
               <span className="label text-ink-3">The NARA Studio sequence</span>
-              <p className="font-display-wide text-lg md:text-xl mt-3">List, contact, score, publish</p>
+              <p className="font-display-wide text-lg md:text-xl mt-3">Evaluate, activate, iterate, vision</p>
             </div>
           </div>
         }
