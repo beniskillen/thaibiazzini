@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NARA Studio — Brand Book</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #111; }
+    body { font-family: "Archivo", Helvetica, Arial, sans-serif; color: #050505; }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      page-break-after: always;
+      break-after: page;
+      overflow: hidden;
+      position: relative;
+      background: #f5f5f5;
+      color: #050505;
+    }
+    .page:last-child { page-break-after: auto; }
+    .dark { background: #050505; color: #f5f5f5; }
+    .pad { padding: 18mm 16mm 16mm; height: 100%; display: flex; flex-direction: column; }
+    .kicker {
+      margin: 0;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8a8a8a;
+    }
+    h1, h2, .display {
+      font-family: "Clash Display", "Arial Narrow", sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .word {
+      font-family: "Clash Display", "Arial Narrow", sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    p { margin: 0; font-size: 13.5px; line-height: 1.5; }
+    .lede { font-size: 16px; line-height: 1.45; max-width: 42rem; }
+    .red { color: #cf1c18; }
+    .muted { color: #8a8a8a; }
+    .foot {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8a8a8a;
+    }
+    .row { display: grid; grid-template-columns: 28mm 1fr; gap: 8mm; align-items: baseline; border-top: 1px solid rgba(5,5,5,0.15); padding: 7mm 0 2mm; }
+    .dark .row { border-top-color: rgba(245,245,245,0.16); }
+    .size { color: #8a8a8a; font-size: 12px; letter-spacing: 0.08em; }
+    .swatches { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm; margin-top: 12mm; }
+    .swatch { min-height: 52mm; padding: 5mm; display: flex; flex-direction: column; justify-content: flex-end; font-size: 13px; }
+    .swatch small { display: block; margin-top: 2mm; opacity: 0.7; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 12mm;
+      padding: 0 7mm;
+      background: #cf1c18;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .btn.ghost { background: transparent; color: #050505; border: 1px solid rgba(5,5,5,0.4); }
+    table { width: 100%; border-collapse: collapse; margin-top: 8mm; }
+    td { vertical-align: top; padding: 4mm 4mm 4mm 0; border-top: 1px solid rgba(5,5,5,0.15); font-size: 13px; line-height: 1.45; }
+    td:first-child { width: 38mm; font-weight: 500; }
+    .cover-mark { font-size: 42mm; letter-spacing: 0.18em; margin-top: 28mm; }
+    .stack { margin-top: 10mm; display: flex; flex-direction: column; gap: 5mm; }
+  </style>
+</head>
+<body>
+  <section class="page dark">
+    <div class="pad">
+      <p class="kicker">Brand book</p>
+      <div class="word cover-mark">NARA</div>
+      <p class="lede" style="margin-top:14mm; max-width: 130mm;">Revenue-driven personal branding. Activate the trust a founder already has. Prove what creates conversations and revenue. Build the brand from that evidence.</p>
+      <div class="foot"><span>NARA Studio</span><span>Sydney</span></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="pad">
+      <p class="kicker">01 — The studio</p>
+      <h2 style="font-size: 28mm; margin-top: 10mm;">Proof<br>sharpens<br>the brand.</h2>
+      <p class="lede" style="margin-top: 12mm;">NARA Studio works with founders whose public presence is weaker than the work. The method starts with the people already closest to a decision: customers, followers, referrals, prior buyers, and the names that should hear from them first.</p>
+      <p class="lede" style="margin-top: 5mm;">Map that market. Activate the warmest relationships. Track what moves. Then turn the evidence into positioning, content, and the next campaign. The brand has a commercial job.</p>
+      <div class="foot"><span>NARA Studio</span><span>01</span></div>
+    </div>
+  </section>
+
+  <section class="page dark">
+    <div class="pad">
+      <p class="kicker">02 — Wordmark</p>
+      <h2 style="font-size: 18mm; margin-top: 8mm;">The mark<br>is the word.</h2>
+      <div class="word" style="font-size: 28mm; margin-top: 16mm;">NARA</div>
+      <p class="lede" style="margin-top: 12mm; max-width: 150mm;">Set NARA in Clash Display Semibold, uppercase, with open letter-spacing. There is no symbol. Use it in off-white on near black, or in near black on off-white. Leave clear space around it at least the width of the N.</p>
+      <p class="lede" style="margin-top: 5mm;">Do not redraw it, outline it, put it in a box, or set it in another typeface. Studio sits in the sentence around the name, not inside the mark.</p>
+      <div class="foot"><span>Clash Display Semibold</span><span>02</span></div>
+    </div>
+  </section>
+
+  <section class="page dark">
+    <div class="pad">
+      <p class="kicker">03 — Type</p>
+      <h2 style="font-size: 16mm; margin-top: 8mm;">Clash Display</h2>
+      <p class="muted" style="margin-top: 3mm;">Semibold. Headlines, the wordmark, and large figures.</p>
+      <div class="row"><div class="size">135</div><div class="display" style="font-size: 22mm;">Proof</div></div>
+      <div class="row"><div class="size">76</div><div class="display" style="font-size: 14mm;">Market</div></div>
+      <div class="row"><div class="size">40</div><div class="display" style="font-size: 9mm;">Method</div></div>
+      <p style="margin-top: 8mm; max-width: 155mm;">On the site, headlines use this face at a tight line height, in uppercase. One word in a headline may turn signal red. That is the only colour change inside a line.</p>
+      <div class="foot"><span>Display</span><span>03</span></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="pad">
+      <p class="kicker">03 — Type</p>
+      <h2 style="font-size: 16mm; margin-top: 8mm;">Archivo</h2>
+      <p class="muted" style="margin-top: 3mm;">Text, navigation, captions, and buttons.</p>
+      <div class="row"><div class="size">48</div><div style="font-size: 11mm; font-weight: 500;">Join the work</div></div>
+      <div class="row"><div class="size">32</div><div style="font-size: 8mm; font-weight: 500; font-style: italic;">Every conversation is evidence.</div></div>
+      <div class="row"><div class="size">24</div><div style="font-size: 6.2mm;">Different markets create different next steps.</div></div>
+      <div class="row"><div class="size">20</div><div style="font-size: 5.2mm; font-style: italic; color: #3a3a3a;">Start with the people already closest.</div></div>
+      <p style="margin-top: 8mm; max-width: 155mm;">Archivo carries everything that is read, clicked, or filled in. Regular for body. Medium for a subhead. Italic for a short aside. Buttons are medium, uppercase, and tracked.</p>
+      <div class="foot"><span>Text and UI</span><span>04</span></div>
+    </div>
+  </section>
+
+  <section class="page dark">
+    <div class="pad">
+      <p class="kicker">04 — Colour</p>
+      <h2 style="font-size: 16mm; margin-top: 8mm;">Three colours.<br>One job each.</h2>
+      <div class="swatches">
+        <div class="swatch" style="background:#050505; border:1px solid #2a2a2a;">#050505<small>Near black. Argument, night sections, type on paper.</small></div>
+        <div class="swatch" style="background:#f5f5f5; color:#050505;">#F5F5F5<small>Off-white. Method, work, and type on black.</small></div>
+        <div class="swatch" style="background:#cf1c18;">#CF1C18<small>Signal red. The next action, and one word.</small></div>
+      </div>
+      <p class="lede" style="margin-top: 12mm; max-width: 155mm;">Red is not a background for a section and not a second headline colour across a page. If the eye can find the button without hunting, the red is doing its job.</p>
+      <div class="foot"><span>Colour</span><span>05</span></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="pad">
+      <p class="kicker">05 — Voice</p>
+      <h2 style="font-size: 16mm; margin-top: 8mm;">Name the<br>commercial fact.</h2>
+      <table>
+        <tr><td>Write</td><td>Short sentences. Say who should hear from the founder first, what was proved, and what happens next.</td></tr>
+        <tr><td>Prefer</td><td>Before you buy more reach, activate the trust you already have.</td></tr>
+        <tr><td>Avoid</td><td>Luxury adjectives, vague transformation, and language that makes the brand sound like a mood.</td></tr>
+        <tr><td>Proof</td><td>Use a number only when the record supports it. Say approximate when the figure is approximate.</td></tr>
+        <tr><td>The founder</td><td>NARA can build the system and run the activation. The founder still brings the judgement, the stories, and the sales conversation.</td></tr>
+      </table>
+      <div class="foot"><span>Voice</span><span>06</span></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="pad">
+      <p class="kicker">06 — Components</p>
+      <h2 style="font-size: 16mm; margin-top: 8mm;">How a page<br>is built.</h2>
+      <div class="stack">
+        <div>
+          <p class="kicker">Eyebrow</p>
+          <p style="margin-top: 2mm;">The Warm Market Activation Method</p>
+        </div>
+        <div>
+          <p class="kicker">Headline</p>
+          <p class="display" style="font-size: 14mm; margin-top: 2mm;">Start with the market.</p>
+        </div>
+        <div>
+          <p class="kicker">Body</p>
+          <p style="margin-top: 2mm; max-width: 140mm;">NARA maps the immediate market, activates trust, proves response, and builds the founder brand from that evidence.</p>
+        </div>
+        <div>
+          <p class="kicker">Action</p>
+          <div style="display:flex; gap: 4mm; margin-top: 3mm;">
+            <span class="btn">[ Get the valuation ]</span>
+            <span class="btn ghost">[ See the method ]</span>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top: 10mm; max-width: 155mm;">Buttons are flat rectangles with no radius. The label is uppercase Archivo inside square brackets. The primary button is signal red. A second action is a hairline rectangle, not a second red.</p>
+      <div class="foot"><span>Components</span><span>07</span></div>
+    </div>
+  </section>
+
+  <section class="page dark">
+    <div class="pad">
+      <p class="kicker">07 — In use</p>
+      <h2 style="font-size: 16mm; margin-top: 8mm;">Black for<br>the argument.<br>Paper for<br>the work.</h2>
+      <p class="lede" style="margin-top: 12mm; max-width: 155mm;">Open a page on near black when the founder is making a claim. Move to off-white when the page is explaining the method, the services, or a case. Keep photography full-bleed and grayscale when it is a portrait. Let the type sit on it, not in a chrome frame.</p>
+      <p class="lede" style="margin-top: 5mm;">The wordmark stays NARA. The red stays on the next action. If a layout needs a third typeface or a fourth colour, it is no longer this brand.</p>
+      <div class="word" style="font-size: 18mm; margin-top: 16mm;">NARA</div>
+      <div class="foot"><span>NARA Studio · Thai Biazzini</span><span>08</span></div>
+    </div>
+  </section>
+</body>
+</html>
