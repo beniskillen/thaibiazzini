@@ -23,6 +23,7 @@ export const CaseFeature = () => (
         <Reveal delay={3} className="mt-6 text-white/45 text-sm max-w-xl">{rd.attribution}</Reveal>
         <Reveal delay={3} className="mt-6 text-white/60 leading-relaxed max-w-xl text-sm md:text-base">
           <p>{rd.short}</p>
+          {rd.proof ? <p className="mt-3 text-white/45">{rd.proof}</p> : null}
         </Reveal>
         <Reveal delay={4} className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-white/10 pt-6">
           {rd.stats.map((s) => (

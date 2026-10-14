@@ -24,6 +24,7 @@ export default function CaseStudyPage() {
             <Reveal><Eyebrow>Selected prior work · {c.tag}</Eyebrow></Reveal>
             <Lines as="h1" delay={0.1} className="font-display text-5xl sm:text-6xl lg:text-7xl mt-8" lines={[<>{c.client}</>, <><span className="font-serif-i font-normal tracking-normal chrome-text">{c.title}</span></>]} />
             <Reveal delay={2} className="mt-8 text-white/50 text-sm md:text-base max-w-xl">{c.attribution}</Reveal>
+            <Reveal delay={3} className="mt-6 text-white/75 leading-relaxed text-sm md:text-base max-w-xl">{c.lead}</Reveal>
           </div>
           <div className="lg:col-span-5 grid grid-cols-2 gap-px bg-white/10 border border-white/10 h-fit lg:mt-16" data-testid="case-stats">
             {c.stats.map((s) => (
@@ -48,7 +49,11 @@ export default function CaseStudyPage() {
           <div className="lg:col-span-8">
             <Reveal><Eyebrow>Mechanism</Eyebrow></Reveal>
             <Reveal as="h2" delay={1} className="font-display text-3xl md:text-5xl mt-6">{c.mechanismTitle}</Reveal>
-            <Reveal delay={2} className="mt-8 text-ink-2 leading-relaxed text-sm md:text-base max-w-2xl">{c.mechanism}</Reveal>
+            <div className="mt-8 max-w-2xl space-y-5">
+              {(Array.isArray(c.mechanism) ? c.mechanism : [c.mechanism]).map((paragraph) => (
+                <Reveal key={paragraph} delay={2} className="text-ink-2 leading-relaxed text-sm md:text-base">{paragraph}</Reveal>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -67,6 +72,31 @@ export default function CaseStudyPage() {
           </ol>
         </div>
 
+        {c.results?.length ? (
+          <div className="mt-24 grid grid-cols-1 lg:grid-cols-12 gap-12" data-testid="case-results">
+            <div className="lg:col-span-4"><Reveal><Eyebrow>What it produced</Eyebrow></Reveal></div>
+            <ul className="lg:col-span-8 space-y-4">
+              {c.results.map((item) => (
+                <Reveal as="li" key={item} className="text-ink text-base md:text-lg border-t border-ink/15 pt-4">{item}</Reveal>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {c.programmeProof ? (
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12" data-testid="case-programme">
+            <div className="lg:col-span-4">
+              <Reveal><Eyebrow>Broader programme proof</Eyebrow></Reveal>
+              <Reveal delay={1} className="mt-4 text-ink-3 text-sm leading-relaxed">{c.programmeProof.note}</Reveal>
+            </div>
+            <ul className="lg:col-span-8 space-y-4">
+              {c.programmeProof.items.map((item) => (
+                <Reveal as="li" key={item} className="text-ink-2 text-sm md:text-base border-t border-ink/15 pt-4">{item}</Reveal>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
         <Reveal className="mt-24 bg-ink text-bone p-8 md:p-14 grid grid-cols-1 lg:grid-cols-12 gap-8">
           <span className="label text-bone/50 lg:col-span-3">Why it worked</span>
           <p className="font-display-wide text-xl md:text-3xl lg:col-span-9 leading-snug">{c.why}</p>
@@ -83,6 +113,7 @@ export default function CaseStudyPage() {
             <Reveal key={g.src} delay={i} className="group">
               <div className="img-frame aspect-[4/5]"><img src={g.src} alt={g.t} className="grayscale group-hover:grayscale-0" /></div>
               <div className="mt-3 text-sm">{g.t}</div>
+              {g.caption ? <p className="mt-1 text-white/55 text-sm leading-relaxed">{g.caption}</p> : null}
               <div className="label text-white/35 mt-1 !tracking-[0.08em] !normal-case">{g.c}</div>
             </Reveal>
           ))}

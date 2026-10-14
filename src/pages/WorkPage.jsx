@@ -11,8 +11,8 @@ export default function WorkPage() {
     <main data-testid="work-page">
       <PageHero
         eyebrow="Selected prior work"
-        lines={[<>Earlier work.</>, <>One approximate</>, <>campaign <span className="font-serif-i font-normal tracking-normal chrome-text">total.</span></>]}
-        lead="Red Dust is an approximate campaign total from Thai's role there. Sean Bell and Shiv Nair describe the work. No extra totals are attached."
+        lines={[<>Creative direction,</>, <>social management,</>, <>and the <span className="font-serif-i font-normal tracking-normal chrome-text">outreach.</span></>]}
+        lead="These cases show how Thai blended the look, the ongoing social presence, and contact with people who already knew the work. Red Dust carries one approximate total. Sean Bell and Shiv Nair describe the work. They are not NARA Studio client engagements."
       />
       <section className="theme-light px-6 lg:px-14 py-20 md:py-28" data-testid="work-grid">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
@@ -42,6 +42,7 @@ export default function WorkPage() {
                     <p className="mt-2 text-ink-3 text-sm max-w-xl">{c.attribution}</p>
                     <h2 className={`font-display mt-2 ${i === 0 ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"}`}>{c.title}</h2>
                     <p className="mt-3 text-ink-2 text-sm md:text-base max-w-xl">{c.short}</p>
+                    {c.proof ? <p className="mt-3 label text-ink-3 !tracking-[0.08em]">{c.proof}</p> : null}
                   </div>
                   <ArrowUpRight className="service-arrow shrink-0 mt-2 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
